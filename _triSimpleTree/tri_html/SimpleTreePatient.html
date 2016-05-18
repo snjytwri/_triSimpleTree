@@ -1,0 +1,303 @@
+<html><!-- Note: IE8 supports the content property only if a !DOCTYPE is specified. --><head>
+	<title>Techlister.com - jQuery Tree view without plugin</title>
+	<link href="../tri_css/SimpleTreeStyle.css" rel="stylesheet">
+    <link href="../tri_css/jquery_ui_192.custom.css" rel="stylesheet">
+    <!--<script src="../tri_scripts/jquery.min.js" type="text/javascript"> </script>-->
+    <script src="../tri_scripts/jquery_1_12_1min.js" type="text/javascript"> </script>
+    <script src="../tri_scripts/jquery_ui_192.custom.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../tri_scripts/SDK.REST.js"></script>
+    <script src="../tri_scripts/PatientTreeScript.js" type="text/javascript"></script>
+    <script src="../tri_scripts/SaveConfigurationPatient.js" type="text/javascript"></script>
+    <script src="../tri_scripts/json2.js" type="text/javascript"></script>
+
+    <script src="../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <script src="../tri_scripts/XrmServiceToolkit.js" type="text/javascript"></script>
+    <script src="../tri_scripts/DialogScript.js" type="text/javascript"></script>
+
+
+	<script type="text/javascript">
+
+	    $(document).ready(function () {
+	        	        
+	        var AvailableValuesIssue = [];
+	        var AvailableValuesGoal = [];
+	        var AvailableValuesIntervention = [];
+	        var getId = "";
+	        var getClass = "";
+	        var PatientId = parent.Xrm.Page.data.entity.getId();
+	        //var RootNode = '<td class= "tree"><ul class = "planULclass">' + GetPlanNode(PatientId) + '</ul></td>'
+
+	        var RootNode =  GetPlanNode(PatientId) 
+
+
+	        //$("#PlanCell").after(RootNode);
+
+	        $('#wrapper tr:last').after(RootNode);
+
+	         $('.tree td> .plusminus').parent().removeClass('active'); //change plusminus to plus
+
+	        //button click events
+	        $("#Configure").click(function () {
+	            $("#Configure").hide();
+	            $("#SaveConfiguration").show('slow');
+
+	           
+	            $('.chkboxclass, .chkboxclassdtl, .chkboxclassth, .chkboxclasstd').show('slow');//show the  'selected' checkbox field for vitaltype and goaldetails row
+
+	            //$('.goalrow, .goalrowdetail').show('slow').find('*').children().show('slow')//explode all nodes
+
+	            $('.goalrow, .goalrowdetail').show('slow');
+
+	            //$('.PatientfactorSelectId').selectmenu().addClass("overflow"); //jqueryUI function for select menus
+	           
+	            $('.tree td> .plusminus').each(function () {//toggle minus sign if Plus for plan
+	                if ($(this).parent().hasClass('active')) {
+	                    $(this).parent().removeClass('active');
+	                }
+	            });
+
+	            $('.goalrow td> .plusminus').each(function () {//toggle minus sign if Plus for plan
+	                if ($(this).parent().hasClass('active')) {
+	                    $(this).parent().removeClass('active');
+	                }
+	            });
+
+	            SetVitalTypeChkBox(); //loop through all goaldetailrows and check the parent if any goaldetailrow is checked.
+
+	        });
+
+	        $("#SaveConfiguration").click(function () {
+	            $("#SaveConfiguration").hide();
+	            $("#Configure").show('slow');
+
+	            //hide all the unchecked rows for goaldetailrow and goalrows
+	           // $('.PatientfactorSelectId').selectmenu().addClass("overflow"); //jqueryUI function for select menus
+
+	            $('.goalrow,.goalrowdetail').filter(function () {
+	                return $(this).find('input:checked').length == 0;
+	            })
+	            .hide(); 
+                          
+	            // hide the 'selected' column header and related row elements
+	            $('.chkboxclass, .chkboxclassdtl, .chkboxclassth, .chkboxclasstd').hide('slow');
+	            
+	            SaveConfig(PatientId);
+	        });
+            
+	        //uncheck all goalrowdetals when a parent goalrow is checked
+	        $('input[level=parent]').click(function () {
+	           
+	            $(this).parents().nextUntil('tr.goalrow').find(':checkbox').prop('checked', false);
+	            
+	        });
+
+	        //when a goaldetailrow is checked, check the parent goalrow
+	        $('input[level=child]').click(function () {
+	            
+	            var Childchecked = $(this).is(':checked');
+	            var Parentchkbox = $(this).attr('parentname');
+	           
+	            if (Childchecked) {
+	                $('input[name="' + Parentchkbox + '"]').prop('checked', true);
+	                
+	            }
+	            
+	        });
+                              
+	    
+	        $('.planname').click(function () {
+	            var varId = $(this).attr('id');
+
+	            if ($("#Configure").is(":visible")) {//only navigate on non configuration state
+	                Xrm.Utility.openEntityForm("tri_cccareplan", varId, true);
+	            }
+
+	            if ($("#SaveConfiguration").is(":visible")) {
+	                //$('.planname').attr('contenteditable', true);
+
+	            }
+	        });
+                 	      
+
+	        $('.goalname').click(function () {
+	            var varId = $(this).attr('id');
+	            //alert(varId);
+	            if ($("#Configure").is(":visible")) {
+	                Xrm.Utility.openEntityForm("tri_cccareplangoal", varId, true);
+	            }
+
+	            if ($("#SaveConfiguration").is(":visible")) {
+	                $('.goalname').attr('contenteditable', true);
+	                //$("#ButtonAddChild").show('fast').text("Add Intervention");
+	            }
+	        });
+            	       
+	        
+	        $('.chkboxclass, .chkboxclassdtl, .chkboxclassth, .chkboxclasstd').hide();
+
+	        SetVitalTypeChkBox();
+
+	        //$('.goalrow').filter(function () { //hide 
+	        //    return $(this).find('input:checked').length == 0;
+	        //}).hide();
+
+	        $('.goalrowdetail').hide();
+
+	       
+	        $('.tree td> .plusminus').click(function () {
+	            var tdplanid = $(this).parent().attr('id');
+	            var vSchedCatCls = tdplanid + "_cls";
+	            //alert(vSchedCatCls);
+                //$(this).parent().togglec
+
+	            if ($(this).parent().hasClass('active')) {
+                    	               
+	                $(this).parent().removeClass('active');	                
+	                //$(this).parent().parent().nextUntil('tr.tree').show('fast');
+	                
+	                $('tr[parentClass="' + vSchedCatCls + '"]').show('fast');
+	                $('.goalrowdetail').hide();
+	                //$("."+vSchedCatCls).show();
+	                //$('tr.100000000_cls').show('slow');
+	                $('td[parentschedcatid="' + tdplanid + '"]').addClass('active');
+
+	            }
+	            else {
+
+	                $(this).parent().addClass('active');
+	                // $(this).parent().parent().nextUntil('tr.tree').hide('fast');
+	                $('tr[parentClass="' + vSchedCatCls + '"]').hide('fast');
+	                $('.goalrowdetail').hide();
+	               // $("." + vSchedCatCls).hide();
+	              	$('td[parentschedcatid="' + tdplanid + '"]').addClass('active'); 
+	            }
+
+	            //if ($("#Configure").is(":visible")) {
+
+	            //    $('.goalrow,.goalrowdetail').filter(function () {
+	            //        return $(this).find('input:checked').length == 0;
+	            //    })
+                //     .hide();
+	            //}
+
+	        });
+
+	        
+	        $('.goalrow td > .plusminus').click(function () {
+	            var tdCatSectnid = $(this).parent().attr('id');
+	            var vSchedCatSectionCls = tdCatSectnid + "_cls";
+	            //alert(vSchedCatSectionCls);
+
+	            if ($(this).parent().hasClass('active')) {
+
+	                $(this).parent().removeClass('active');
+	                // $(this).parent().parent().nextUntil('tr.goalrow').show();
+	                $('tr[parentCatSectionClass="' + vSchedCatSectionCls + '"]').show('fast');
+	                
+
+	                 }
+	            else
+	                 {
+	                
+	                $(this).parent().addClass('active');
+	                //$(this).parent().parent().nextUntil('tr.goalrow').hide();
+	                $('tr[parentCatSectionClass="' + vSchedCatSectionCls + '"]').hide('fast');
+	                
+	            }
+
+
+
+	            //if ($("#Configure").is(":visible")) {
+
+	            //    $('.goalrowdetail').filter(function () {
+	            //        return $(this).find('input:checked').length == 0;
+	            //    })
+                //     .hide();
+	            //}
+
+	        });
+
+	        $(function () {
+
+	            $('.PatientfactorSelectId, .TargetMetricOperatorSelectCls, .ActionMetricOperatorSelectCls, .ActivityAssgmntRoleSelectCls').selectmenu(); //jqueryUI function for select menus
+
+	        });
+
+        
+
+
+	    });
+
+
+
+	    function SetVitalTypeChkBox() {
+
+	        $('input[level=child]').each(function () {
+
+	            var Childchecked1 = $(this).is(':checked');
+	            var Parentchkbox1 = $(this).attr('parentname');
+
+	            if (Childchecked1) {
+	                $('input[name="' + Parentchkbox1 + '"]').prop('checked', true);
+	                event.preventDefault();
+
+	            }
+	        }); 
+	    }
+</script>
+ <script>
+
+         //$(function () {
+
+         //    $('.PatientfactorSelectId, .TargetMetricOperatorSelectCls, .ActionMetricOperatorSelectCls, .ActivityAssgmntRoleSelectCls').selectmenu(); //jqueryUI function for select menus
+
+         //});
+
+</script>
+
+
+ 
+</head>
+<body>
+
+<button id="Configure">Personalize Care Plan</button>
+<button id="SaveConfiguration">Save</button>
+<div>
+    <table id="wrapper">
+        <tbody>
+        <tr>
+        <th style="white-space:nowrap;">Name</th>
+        <th class="chkboxclassth">Selected</th>
+        <th>Vital Type</th>
+        <th>Patient Factor/Modifier</th>
+        <th>Target Metric Operator</th>
+        <th>Target Value</th>
+        <th>Action Trigger Metric Operator</th>
+        <th>Action Trigger Value</th>
+        <th>Measure Details</th>
+        <!--<th>Activity Create On</th>
+        <th>Activity Due On</th>-->
+        <th>Activity Recurrence</th>
+       <!-- <th>Number Of Recurrences</th>-->
+        <th>Activity Assignment Role</th>
+        <th>Activity Description</th>
+        <th>Care Plan</th>
+        </tr>
+        <!--<tr> 
+       <td ></td>
+       <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>-->
+            </tbody>
+        </table>
+    </div>
+
+ </body></html>

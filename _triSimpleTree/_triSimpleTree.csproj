@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E36B182-96F5-49C0-BE9D-D00387F0333F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_triSimpleTree</RootNamespace>
+    <AssemblyName>_triSimpleTree</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MonitorModev2_files\action.js" />
+    <Content Include="MonitorModev2_files\adaptive.js" />
+    <Content Include="MonitorModev2_files\annotation.js" />
+    <Content Include="MonitorModev2_files\axQuery.js" />
+    <Content Include="MonitorModev2_files\axQuery.std.js" />
+    <Content Include="MonitorModev2_files\axure_rp_page.css" />
+    <Content Include="MonitorModev2_files\axutils.js" />
+    <Content Include="MonitorModev2_files\data.js" />
+    <Content Include="MonitorModev2_files\doc.js" />
+    <Content Include="MonitorModev2_files\document.js" />
+    <Content Include="MonitorModev2_files\drag.js" />
+    <Content Include="MonitorModev2_files\events.js" />
+    <Content Include="MonitorModev2_files\expr.js" />
+    <Content Include="MonitorModev2_files\flyout.js" />
+    <Content Include="MonitorModev2_files\geometry.js" />
+    <Content Include="MonitorModev2_files\globals.js" />
+    <Content Include="MonitorModev2_files\ie.js" />
+    <Content Include="MonitorModev2_files\init.temp.js" />
+    <Content Include="MonitorModev2_files\jquery-1.7.1.min.js" />
+    <Content Include="MonitorModev2_files\jquery-ui-1.8.10.custom.min.js" />
+    <Content Include="MonitorModev2_files\jquery-ui-themes.css" />
+    <Content Include="MonitorModev2_files\legacy.js" />
+    <Content Include="MonitorModev2_files\messagecenter.js" />
+    <Content Include="MonitorModev2_files\model.js" />
+    <Content Include="MonitorModev2_files\move.js" />
+    <Content Include="MonitorModev2_files\repeater.js" />
+    <Content Include="MonitorModev2_files\sto.js" />
+    <Content Include="MonitorModev2_files\style.js" />
+    <Content Include="MonitorModev2_files\styles%281%29.css" />
+    <Content Include="MonitorModev2_files\styles.css" />
+    <Content Include="MonitorModev2_files\transparent.gif" />
+    <Content Include="MonitorModev2_files\tree.js" />
+    <Content Include="MonitorModev2_files\u1023.png" />
+    <Content Include="MonitorModev2_files\u126.png" />
+    <Content Include="MonitorModev2_files\u2.png" />
+    <Content Include="MonitorModev2_files\u24_line.png" />
+    <Content Include="MonitorModev2_files\u285.png" />
+    <Content Include="MonitorModev2_files\u314.png" />
+    <Content Include="MonitorModev2_files\u394.png" />
+    <Content Include="MonitorModev2_files\u465.png" />
+    <Content Include="MonitorModev2_files\u467.png" />
+    <Content Include="MonitorModev2_files\u471.png" />
+    <Content Include="MonitorModev2_files\u473.png" />
+    <Content Include="MonitorModev2_files\u481.png" />
+    <Content Include="MonitorModev2_files\u485.png" />
+    <Content Include="MonitorModev2_files\u487.png" />
+    <Content Include="MonitorModev2_files\u495.png" />
+    <Content Include="MonitorModev2_files\u497.png" />
+    <Content Include="MonitorModev2_files\u515.png" />
+    <Content Include="MonitorModev2_files\u537.png" />
+    <Content Include="MonitorModev2_files\u539.png" />
+    <Content Include="MonitorModev2_files\u549.png" />
+    <Content Include="MonitorModev2_files\u56.png" />
+    <Content Include="MonitorModev2_files\u874.png" />
+    <Content Include="MonitorModev2_files\u876.png" />
+    <Content Include="MonitorModev2_files\u878.png" />
+    <Content Include="MonitorModev2_files\u880.png" />
+    <Content Include="MonitorModev2_files\u882.png" />
+    <Content Include="MonitorModev2_files\u884.png" />
+    <Content Include="MonitorModev2_files\u886.png" />
+    <Content Include="MonitorModev2_files\u888.png" />
+    <Content Include="MonitorModev2_files\u890.png" />
+    <Content Include="MonitorModev2_files\u892_line.png" />
+    <Content Include="MonitorModev2_files\u898.png" />
+    <Content Include="MonitorModev2_files\u900.png" />
+    <Content Include="MonitorModev2_files\u908.png" />
+    <Content Include="MonitorModev2_files\u918.png" />
+    <Content Include="MonitorModev2_files\u925.png" />
+    <Content Include="MonitorModev2_files\u927.png" />
+    <Content Include="MonitorModev2_files\u932.png" />
+    <Content Include="MonitorModev2_files\u942.png" />
+    <Content Include="MonitorModev2_files\u944.png" />
+    <Content Include="MonitorModev2_files\u946.png" />
+    <Content Include="MonitorModev2_files\u956.png" />
+    <Content Include="MonitorModev2_files\u959.png" />
+    <Content Include="MonitorModev2_files\u961.png" />
+    <Content Include="MonitorModev2_files\u967.png" />
+    <Content Include="MonitorModev2_files\u969.png" />
+    <Content Include="MonitorModev2_files\u979.png" />
+    <Content Include="MonitorModev2_files\utils.temp.js" />
+    <Content Include="MonitorModev2_files\variables.js" />
+    <Content Include="MonitorModev2_files\viewer.js" />
+    <Content Include="MonitorModev2_files\visibility.js" />
+    <Content Include="tri_css\CarePlanMonitor.css" />
+    <Content Include="tri_css\jquery_ui_192.custom.css" />
+    <Content Include="tri_html\AddNewCarePlan.html" />
+    <Content Include="tri_html\CarePlanMon.html" />
+    <Content Include="tri_html\SimpleTreePatient.html" />
+    <Content Include="tri_html\StierSolution.html" />
+    <Content Include="tri_scripts\CarePlanMon.js" />
+    <Content Include="tri_scripts\jquery_1_12_1min.js" />
+    <Content Include="tri_scripts\jquery_ui_192.custom.js" />
+    <Content Include="tri_scripts\json2.js" />
+    <Content Include="tri_scripts\PatientTreeScript.js" />
+    <Content Include="tri_scripts\SaveConfigurationPatient.js" />
+    <Content Include="tri_css\SimpleTreeStyle.css" />
+    <Content Include="tri_scripts\SDK.REST.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8300</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8300/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

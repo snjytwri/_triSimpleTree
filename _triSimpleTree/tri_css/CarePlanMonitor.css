@@ -1,0 +1,220 @@
+﻿body {
+    font-family: 'Helvetica', 'Arial';
+}
+
+.dropbtn {
+    border: 1px solid #999999;
+    background-color: #F7F7F7;
+    cursor: pointer;
+    padding: 6px;
+    cursor: pointer;
+    font-family: 'Arial Regular', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 11px;
+    color: #333333;
+    line-height: normal;
+    min-width: 20em;
+    text-align: left;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 220px;
+}
+
+    .dropdown-content a {
+        border: 1px solid #999999;
+        background-color: #F7F7F7;
+        cursor: pointer;
+        padding: 6px;
+        cursor: pointer;
+        font-family: 'Arial Regular', 'Arial';
+        font-weight: 400;
+        font-style: normal;
+        font-size: 11px;
+        color: #333333;
+        line-height: normal;
+        text-decoration: none;
+        display: block;
+        border-top: none;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #c9c9c9;
+            color: #fff;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}*/
+
+.clear {
+    clear: both;
+}
+
+#top {
+    margin-left: 15px;
+    width: 50%;
+    font-size: 12px;
+}
+
+#addNewCarePlan {
+    color: #0072C6;
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+    #addNewCarePlan span {
+    }
+
+#search {
+    text-align: right;
+    padding-right: 20px;
+}
+
+#top input[type="text"] {
+    vertical-align: bottom;
+    font-style: italic;
+    width: 200px;
+    border: 1px solid #999999;
+    float: right;
+}
+
+#typeDetails {
+    margin-top: 20px;
+    border-bottom: 1px solid #999999;
+    border-top: 1px solid #999999;
+    max-height: 60px;
+}
+
+    #typeDetails span {
+        padding: 8px 18px 8px 18px;
+        display: inline-block;
+    }
+
+        #typeDetails span img {
+            margin-bottom: -5px;
+            margin-left: 8px;
+        }
+
+
+#details {
+    margin-top: 20px;
+}
+
+.w3-navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.w3-black, .w3-hover-black:hover {
+    /*color: #000 !important;*/
+}
+
+.w3-navbar li {
+    float: left;
+    margin-left: 2px;
+    bottom: 0;
+    width: 37px;
+    height: 24px;
+}
+
+.w3-navbar span {
+    display: block;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.w3-navbar li:first-child {
+}
+
+.w3-navbar li:click {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
+    transform: scale(1.2);
+}
+
+.w3-navbar li a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #fff;
+    word-wrap: break-word;
+}
+
+#detailsBlock {
+    margin-left: 2%;
+}
+
+.btnClose {
+    text-decoration: none;
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    float: right;
+    border: 1px solid #1160B7;
+    padding-top: 10px;
+    color: #1160B7;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+    .btnClose:hover {
+        border: 1px solid transparent;
+        color: #999999;
+        background-color: #f2f2f2;
+    }
+
+#careaPlans div {
+    display: inline-block;
+    padding: 5px;
+    border-bottom: 1px solid #999999;
+    border-top: 1px solid #999999;
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 30px;
+}
+
+    #careaPlans div span {
+        float: left;
+        margin: 8px;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 11px;
+        text-align: left;
+    }
+
+    #careaPlans div a {
+        width: 44px;
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+        float: right;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
+        color: #0072C6;
+        text-decoration: none;
+        margin-top: -5px;
+        margin-right: -5px;
+        vertical-align: text-bottom;
+    }
+
+        #careaPlans div a:hover {
+            background-color: #e4e4e4;
+        }

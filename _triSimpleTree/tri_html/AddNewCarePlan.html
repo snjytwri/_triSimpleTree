@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="../tri_css/CarePlanMonitor.css" rel="stylesheet" />
+    <script src="../tri_scripts/jquery_1_12_1min.js"></script>
+    <script src="../tri_scripts/CarePlanMon.js"></script>
+    <script src="../tri_scripts/jquery_ui_192.custom.js"></script>
+    <script src="../tri_scripts/PatientTreeScript.js"></script>
+    <title>Add New Care Plan</title>
+</head>
+<body>
+    <div id="newCarePlan" class="" style="width:40%;margin-left:6%;background-color:#fff;">
+        <p style="display:inline-block;width:100%;">
+            <a href="#" data-rel="back" class="btnClose">X</a>
+        </p>
+        <div style="margin-top:-30px;">
+            <span style="color: #333333; font-size: 18px; text-align: left;"><h4>Select the Care Plan you want to add:</h4></span>
+        </div>
+        <div style="margin-top:20px;">
+            <div class="dropdown" style="float:left;">
+                <button class="dropbtn">Viewing All (Select Category)</button>
+                <div class="dropdown-content">
+                    <a href="#">Category 1</a>
+                    <a href="#">Category 2</a>
+                    <a href="#">Category 3</a>
+                    <a href="#">Category 4</a>
+                    <a href="#">Category 5</a>
+                </div>
+            </div>
+            <input type="text" name="searchonAddCarePlan" placeholder="Search for entries" style="float: right; font-style: italic;" />
+        </div>
+        <div class="clear"></div>
+        <div id="careaPlans" style="margin-top:15px;">
+            <div style="">
+                <span>Care Plan no. 1</span>
+                <a id="addplan" href="#">+</a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Care Plan Monitor</title>
+    <link href="../tri_css/CarePlanMonitor.css" rel="stylesheet" />
+    <script src="../tri_scripts/jquery_1_12_1min.js"></script>
+    <script src="../tri_scripts/CarePlanMon.js"></script>
+    <script src="../tri_scripts/jquery_ui_192.custom.js"></script>
+</head>
+<body>
+    <div id="top">
+        <div id="header">
+            <span style='color: #0072C6;'>Care Plan Monitor</span>
+        </div>
+        <div style="margin-top:20px;">
+            <div class="dropdown" style="float:left;">
+                <button class="dropbtn">All Care Plans</button>
+                <div class="dropdown-content">
+                    <a href="#">Care Plan 1 Only</a>
+                    <a href="#">Care Plan 2 Only</a>
+                    <a href="#">Care Plan 3 Only</a>
+                </div>
+            </div>
+            <a href="#" id="addNewCarePlan"><span style="font-size:15px;"><b>+</b></span><span style="text-decoration:underline;">Add New Care Plan</span></a>
+            <input type="text" name="searchbox" placeholder="Search for entries" />
+        </div>
+        <div class="clear"></div>
+        <div id="typeDetails">
+            <span>Type & Details<img src="../MonitorModev2_files/u900.png" /></span>
+            <span>|</span>
+            <span>Target</span>
+            <span>|</span>
+            <span>Last Result</span>
+            <span>|</span>
+            <span>Last Result Date<img src="../MonitorModev2_files/u900.png" /></span>
+            <span>|</span>
+            <span>Next Due Date<img src="../MonitorModev2_files/u900.png" /></span>
+        </div>
+        <div class="clear"></div>
+        <div id="details">
+            <div id="detailsTab">
+                <ul id="detailsList" class="w3-navbar w3-black">
+                    <li style="background-color:#0072C6;margin-top:10px;"><a href="#" onclick="openTab(this, 'All', '#0072C6')">+</a></li>
+                    <li style="background-color:#FF4444;margin-top:10px;"><a href="#" onclick="openTab(this,'One','#FF4444')">1</a></li>
+                    <li style="background-color: #99CC00; margin-top: 10px;"><a href="#" onclick="openTab(this, 'Four', '#99CC00')">4</a></li>
+                    <li style="background-color:#666666;margin-top:10px;"><a href="#" onclick="openTab(this,'calender','#666666')">1</a></li>
+                    <li><span>Symptoms</span></li>
+                </ul>
+                <div id="detailsBlock">
+                    <div id="All" class="symptoms" style="display:none;">
+                        <p>All(4)</p>
+                    </div>
+
+                    <div id="One" class="symptoms" style="display:none;">
+                        <p>1</p>
+                    </div>
+
+                    <div id="Four" class="symptoms" style="display:none;">
+                        <p>4</p>
+                    </div>
+
+                    <div id="calender" class="symptoms" style="display:none;">
+                        <p>1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="actions"></div>
+    </div>
+</body>
+</html>

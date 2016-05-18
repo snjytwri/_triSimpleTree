@@ -1,0 +1,91 @@
+body {
+    /*color: #3B4C56;*/
+    font-family: sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/*#Configure {
+    display:none;
+}*/
+#SaveConfiguration {
+    display:none;
+}
+
+.li_hover {
+    cursor:pointer;
+    vertical-align: bottom;
+    background-color:#E1EBEB;
+        color:blue;
+        text-decoration: underline;
+}
+
+select {
+      width: 120px;
+    }
+
+.overflow {
+ height: 200px;
+  }
+
+
+
+.plusminus {
+    background-image: url("../tri_imgs/plus_minus_icons.png");
+    background-position: 0px center;
+    /*content: "";*/ 
+    width: 22px;
+    height: 22px;
+    vertical-align:middle;
+
+}
+ 
+
+.tree td.active > .plusminus {
+    /*.tree ul li.active > p {*/
+    background-position: 25px center;
+}
+
+.goalrow td.active > .plusminus {
+
+   background-position: 25px center;
+}
+
+
+
+
+table {
+    border-collapse: collapse;
+   /* width: 100%;*/
+  /*border:none;*/
+}
+
+th, td {
+    padding: 1px;
+    /*text-align: left;*/
+    border-width: 1px;
+    border-style:dotted;
+    border-color: lightgray;
+    font-family: sans-serif;
+    font-size: 12px;
+    /*text-decoration: none;*/
+    vertical-align: central;
+}
+
+tr:hover{background-color:#f5f5f5}
+
+th {
+    background-color: #f5f5f5;
+    /*color: navy;*/
+    font-weight: normal;
+    font-style:italic;
+
+}
+
+
+
+
+
+
+
+
