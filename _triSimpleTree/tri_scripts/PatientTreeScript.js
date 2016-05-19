@@ -34,7 +34,7 @@
 "    </filter>" +
 "  </entity>" +
 "</fetch>"
-    alert(FetchXmlplan);
+    // alert(FetchXmlplan);
     var planLevel = "";
     var PlanArray = [];
     var CatArray = [];
@@ -86,15 +86,15 @@
                     GoalSectionTags = GetSectionNode(retrievedPlanRecords, PatientId, CurrPlanId, vSchedCatStr);
                 }
                 else { GoalSectionTags = "" };
-               // alert(GoalSectionTags);
+                // alert(GoalSectionTags);
                 // if (retrievedPlanRecords[i].attributes["tri_planselected"].value === true) { // set checkbox based on join field value
                 //     flgchcked = '<input type="checkbox"  class = "chkboxclass" name="planchkbox"  value="' + CurrPlanId + '"  checked/>';
                 //       }
                 //else  {
-                   
+
                 //     flgchcked = '<input  type="checkbox"  class = "chkboxclass" name="planchkbox"  value="' + CurrPlanId + '"  />';
 
-                
+
                 //}
                 //planLevel = planLevel + '<li  class="plannameLI" id="' + CurrPlanId_li + '"><span>' + flgchcked + ' </span> <img class="plusminus" /> <span class="planname" id = "' + CurrPlanId + '">' + planName + '</span>' + GoalNodeTags +'</li>'
                 //planLevel = planLevel + '<tr class= "tree" id="' + CurrPlanId + '"><td style="white-space:nowrap;" class="active"  class="plannameLI" id="' + CurrPlanId_td + '"><img class="plusminus"> <span style="vertical-align:middle">' + flgchcked + '<span> <span class="planname" id = "' + CurrPlanId + '">' + vSchedCatTag + '</span></td>' + GoalNodeTags + '</tr>';
@@ -165,9 +165,9 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
     var GoalArray = [];
     var SectionArray = [];
     var GoalNodeDetailsTags = "";
-    var vGoalSectionTag  = "";
+    var vGoalSectionTag = "";
     var vGoalSectionStr = "";
-    
+
     //var tri_activitydescription= "";
     //retrievedGoalRecords = XrmServiceToolkit.Soap.Fetch(FetchXmlgoal);
     retrievedGoalRecords = retrievedPlanRecords;
@@ -179,12 +179,12 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
             var CurrPlanId = retrievedGoalRecords[i].attributes["tri_careplanid"].id;
             var CurrPlanGoalId = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id;
             var CurrSchedCat = retrievedGoalRecords[i].attributes["tri_schedulecategory"].value;
-            
+
             //if (CurrPlanId == PlanId ) {
             if (CurrSchedCat == SchedCat) {
                 var CurrGoalId = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id;
                 var CurrVitalType = retrievedGoalRecords[i].attributes["tri_vitalvaluetypename"].value;
-                var PlanGoalConcatid = CurrPlanId + CurrGoalId+"_vital";
+                var PlanGoalConcatid = CurrPlanId + CurrGoalId + "_vital";
                 var ParentPlanId = retrievedGoalRecords[i].attributes["tri_careplanid"].id + "_td";
                 var CurrGoalId_li = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id + "_li";
                 var SchedCat_cls = SchedCat + "_cls";
@@ -221,14 +221,14 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
 
                 //var indexOfGoal = GoalArray.indexOf(CurrVitalType);
                 var indexOfSection = SectionArray.indexOf(vGoalSectionTag);
-                
+
                 if (indexOfSection === -1) {
                     SectionArray.push(vGoalSectionTag);
                     //var goalName = retrieveName(CurrGoalId, "tri_cccareplangoalSet");
                     //var goalName = retrievedGoalRecords[i].attributes["tri_goalname"].value;
                     //var goalSelected = retrievedGoalRecords[i].attributes["tri_goalselected"].value;
                     //var varGoalColor = setGoalColor(retrievedGoalRecords[i].attributes["new_goalstate"].value);
-                    var varCatSectionConcatId = SchedCat +"_"+ vGoalSectionStr;
+                    var varCatSectionConcatId = SchedCat + "_" + vGoalSectionStr;
 
                     if (GetGoalDetailsNode(retrievedPlanRecords, CurrVitalType, SchedCat, vGoalSectionStr) != "") {
                         //GoalNodeTags = '<ul class="goalULclass">' + GetGoalNode(retrievedPlanRecords, PatientId, CurrPlanId) + '</ul>';
@@ -246,36 +246,36 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
 
                     }
 
-                   
-                   // goalLevel = goalLevel + '<tr class="goalrow"><td style="padding-left: 25px; white-space:nowrap;" class="active" class="goalnameLI" parentplanid="' + ParentPlanId + '" id="' + CurrGoalId_li + '"><img class="plusminus" /> <span style="vertical-align:middle">' + flgchcked + '</span> <span class="goalname" id = "' + CurrGoalId + '">' + CurrVitalType + '</span></td>' + GoalNodeDetailsTags + '</tr>';
-                    
+
+                    // goalLevel = goalLevel + '<tr class="goalrow"><td style="padding-left: 25px; white-space:nowrap;" class="active" class="goalnameLI" parentplanid="' + ParentPlanId + '" id="' + CurrGoalId_li + '"><img class="plusminus" /> <span style="vertical-align:middle">' + flgchcked + '</span> <span class="goalname" id = "' + CurrGoalId + '">' + CurrVitalType + '</span></td>' + GoalNodeDetailsTags + '</tr>';
+
                     goalLevel = goalLevel + '<tr class="goalrow" parentclass ="' + SchedCat_cls + '"><td style="padding-left: 25px; white-space:nowrap;" class="active" class="goalnameLI" parentschedcatid="' + SchedCat + '" id="' + varCatSectionConcatId + '"><img class="plusminus" />  <span style="vertical-align:middle">' + flgchcked + '</span> <span class="goalname" id = "' + CurrGoalId + '">' + vGoalSectionTag + '</span></td>' + GoalNodeDetailsTags + '</tr>';
 
-                    
+
                 }
             }
         }
     }
-    
+
     return goalLevel
 }
 
-function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,GoalSectiondtl) {
+function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, GoalSectiondtl) {
 
-   var goaldetailLevel = "";
-   var MeasureDetails = "";
-   var TargetValue;
-   var vMeasureDtl;
-   var vActiontriggerValue;
-   var vActivityDescription;
-   var vPatientfactor;
-   var varPatientFactorStr;
-   var vTargetMetricOperator;
-   var vTargetMetricOperatorStr;
-   var vActivityAssgmntRole;
-   var vActivityAssgmntRoleStr;
+    var goaldetailLevel = "";
+    var MeasureDetails = "";
+    var TargetValue;
+    var vMeasureDtl;
+    var vActiontriggerValue;
+    var vActivityDescription;
+    var vPatientfactor;
+    var varPatientFactorStr;
+    var vTargetMetricOperator;
+    var vTargetMetricOperatorStr;
+    var vActivityAssgmntRole;
+    var vActivityAssgmntRoleStr;
 
-       
+
     //alert(FetchXmlGD);
     retrievedGoalRecords1 = retrievedPlanRecords;
     //alert( retrievedGoalRecords1.length);
@@ -303,15 +303,15 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,Goa
             //if (CurrVitalType === VitalTypeName) {
             if (CurrSchedCat === SchedCatdtl && CurrGoalSection === GoalSectiondtl) {
 
-                 
-               // var SchedCatSectnInt = SchedCatdtl + GoalSectiondtl;
-                var SchedCatSectnCls = SchedCatdtl + "_" + GoalSectiondtl  + "_cls";
+
+                // var SchedCatSectnInt = SchedCatdtl + GoalSectiondtl;
+                var SchedCatSectnCls = SchedCatdtl + "_" + GoalSectiondtl + "_cls";
                 var CurrPlanId = retrievedGoalRecords1[i].attributes["tri_careplanid"].id;
                 var CurrGoalId = retrievedGoalRecords1[i].attributes["tri_careplangoalid"].id;
                 var CurrGoalId_li = retrievedGoalRecords1[i].attributes["tri_careplangoalid"].id + "_li";
                 var goalSelected = retrievedGoalRecords1[i].attributes["tri_goalselected"].value;
                 var careplanjoin = retrievedGoalRecords1[i].attributes["tri_careplanjoinid"].value;
-                
+
                 //vTargetMetricOperator = 'metricoperator' + careplanjoin;
 
                 if (retrievedGoalRecords1[i].attributes["tri_metric"] != undefined) {
@@ -330,8 +330,8 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,Goa
                     vActivityDescription = retrievedGoalRecords[i].attributes["tri_activitydescription"].value;
                 }
 
-                
-                
+
+
                 if (retrievedGoalRecords1[i].attributes["tri_patientfactor"] != undefined) {
 
                     varPatientFactorStr = retrievedGoalRecords[i].attributes["tri_patientfactor"].value;
@@ -367,13 +367,13 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,Goa
                         case -1:
                             vPatientfactor = '<div><select class="PatientfactorSelectId" ><option value="-100000000" selected></option><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option><option value="100000004">All</option><option value="100000005">Normal</option><option value="100000006">Abnormal</option></select></div>';
                             break;
-                        
+
                     }
 
                 }
                 else {
                     vPatientfactor = '<div><select class="PatientfactorSelectId" ><option value="-100000000" selected></option><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option><option value="100000004">All</option><option value="100000005">Normal</option><option value="100000006">Abnormal</option></select></div>';
-                    
+
                 }
 
                 if (retrievedGoalRecords1[i].attributes["tri_targetmetricoperator"] != undefined) {
@@ -403,13 +403,13 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,Goa
                         case -1:
                             vTargetMetricOperator = '<div><select class="TargetMetricOperatorSelectCls" ><option value="-167410000" selected></option><option value="167410000">></option><option value="167410001"><</option><option value="167410002">=</option><option value="167410003">% Decrease</option><option value="167410004">% Increase</option></select></div>';
                             break;
-                            
+
                     }
 
                 }
                 else {
                     vTargetMetricOperator = '<div><select class="TargetMetricOperatorSelectCls" ><option value="-167410000" selected></option><option value="167410000">></option><option value="167410001"><</option><option value="167410002">=</option><option value="167410003">% Decrease</option><option value="167410004">% Increase</option></select></div>';
-                   
+
                 }
 
                 if (retrievedGoalRecords1[i].attributes["tri_activityassignmentrole"] != undefined) {
@@ -451,12 +451,12 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,Goa
 
                 }
                 else {
-                
-                    vActivityAssgmntRole = '<div><select class="ActivityAssgmntRoleSelectCls"><option value="-1" selected></option><option value="167410000">Care Manager</option><option value="167410001" >Nurse</option><option value="167410002" >Dietician</option><option value="167410003" >Care Navigator</option><option value="100000000" >Physiatrist</option><option value="100000001">Cardiologist</option><option value="100000002">Physician</option></select></div>';
-                        
-            }
 
-           
+                    vActivityAssgmntRole = '<div><select class="ActivityAssgmntRoleSelectCls"><option value="-1" selected></option><option value="167410000">Care Manager</option><option value="167410001" >Nurse</option><option value="167410002" >Dietician</option><option value="167410003" >Care Navigator</option><option value="100000000" >Physiatrist</option><option value="100000001">Cardiologist</option><option value="100000002">Physician</option></select></div>';
+
+                }
+
+
                 var PlanGoaldtlConcatid = CurrPlanId + CurrGoalId;
 
                 if (retrievedGoalRecords1[i].attributes["tri_goalselected"].value === true) { // set checkbox based on join field value
@@ -468,13 +468,13 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,Goa
 
                 }
 
-               
 
-                    
+
+
                 goaldetailLevel = goaldetailLevel + '<tr class="goalrowdetail" parentCatSectionClass="' + SchedCatSectnCls + '" parentgoalid="' + CurrGoalId_li + '"><td></td><td class = "chkboxclasstd" style="text-align:center">' + flgchcked
                 // + '</span></td><td style="text-align:center"><div><select id="metricoperator' + careplanjoin + '"><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option></select></div></td>' +
                  + '</td><td style="text-align:left">' + currVitalTypeName + '</td><td style="text-align:center">' + vPatientfactor + '</td>' +
-                      '<td style="text-align:center">'+ vTargetMetricOperator +'</td>' +
+                      '<td style="text-align:center">' + vTargetMetricOperator + '</td>' +
                       '<td style="text-align:center">' + TargetValue + '</td>' +
                       '<td style="text-align:center"><div><select class="ActionMetricOperatorSelectCls"><option value="167410000">></option><option value="167410001"><</option><option value="167410002">=</option><option value="167410003">% Decrease</option><option value="167410004">% Increase</option></select></div></td>' +
                       '<td style="text-align:center">' + vActiontriggerValue + '</td>' +
@@ -486,10 +486,10 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl,Goa
                       //'<td>' + '' + '</td>' + //Number Of Recurrences
                       '<td>' + vActivityAssgmntRole + '</td>' + //Activity Assignment Role
                       '<td>' + vActivityDescription + '</td>' + //Activity Description
-                      '<td style="text-align:left">' + currCplanName + '</td>'+ //care plan
+                      '<td style="text-align:left">' + currCplanName + '</td>' + //care plan
                       '<tr>'
 
-                        
+
                 //}
             }
         }
