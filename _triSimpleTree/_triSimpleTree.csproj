@@ -57,6 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MonitorModev2_files\u456" />
+    <Content Include="_imgs\imagestrips\transparent_spacer.png" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,6 +161,7 @@
     <Content Include="tri_scripts\jquery_ui_192.custom.js" />
     <Content Include="tri_scripts\json2.js" />
     <Content Include="tri_scripts\PatientTreeScript.js" />
+    <Content Include="tri_scripts\PatientMonitorMode.js" />
     <Content Include="tri_scripts\SaveConfigurationPatient.js" />
     <Content Include="tri_css\SimpleTreeStyle.css" />
     <Content Include="tri_scripts\SDK.REST.js" />

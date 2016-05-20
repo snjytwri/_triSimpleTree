@@ -67,99 +67,22 @@
                         break;
                 }
             }
-            // var IndexOfPlan = PlanArray.indexOf(CurrPlanId);
             var IndexOfCat = CatArray.indexOf(vSchedCatTag);
             if (IndexOfCat === -1) {
-                //PrvPlanId = CurrPlanId
                 CatArray.push(vSchedCatTag);
-                //var planName = retrieveName(CurrPlanId, "tri_cccareplanSet");
-                //var planName = retrievedPlanRecords[i].attributes["tri_planname"].value;
-
-                //if (GetGoalNode(retrievedPlanRecords, PatientId, CurrPlanId) != "") {
-                //    //GoalNodeTags = '<ul class="goalULclass">' + GetGoalNode(retrievedPlanRecords, PatientId, CurrPlanId) + '</ul>';
-                //    GoalNodeTags = GetGoalNode(retrievedPlanRecords, PatientId, CurrPlanId) ;
-                //}
-                //else { GoalNodeTags = "" };
 
                 if (GetSectionNode(retrievedPlanRecords, PatientId, CurrPlanId, vSchedCatStr) != "") {
-                    //GoalNodeTags = '<ul class="goalULclass">' + GetGoalNode(retrievedPlanRecords, PatientId, CurrPlanId) + '</ul>';
                     GoalSectionTags = GetSectionNode(retrievedPlanRecords, PatientId, CurrPlanId, vSchedCatStr);
                 }
                 else { GoalSectionTags = "" };
-                // alert(GoalSectionTags);
-                // if (retrievedPlanRecords[i].attributes["tri_planselected"].value === true) { // set checkbox based on join field value
-                //     flgchcked = '<input type="checkbox"  class = "chkboxclass" name="planchkbox"  value="' + CurrPlanId + '"  checked/>';
-                //       }
-                //else  {
-
-                //     flgchcked = '<input  type="checkbox"  class = "chkboxclass" name="planchkbox"  value="' + CurrPlanId + '"  />';
-
-
-                //}
-                //planLevel = planLevel + '<li  class="plannameLI" id="' + CurrPlanId_li + '"><span>' + flgchcked + ' </span> <img class="plusminus" /> <span class="planname" id = "' + CurrPlanId + '">' + planName + '</span>' + GoalNodeTags +'</li>'
-                //planLevel = planLevel + '<tr class= "tree" id="' + CurrPlanId + '"><td style="white-space:nowrap;" class="active"  class="plannameLI" id="' + CurrPlanId_td + '"><img class="plusminus"> <span style="vertical-align:middle">' + flgchcked + '<span> <span class="planname" id = "' + CurrPlanId + '">' + vSchedCatTag + '</span></td>' + GoalNodeTags + '</tr>';
-                planLevel = planLevel +
-                    '<tr class= "tree" ><td style="white-space:nowrap;" class="active" class="plannameLI" id="' + vSchedCatStr + '"> <img class="plusminus"> <span class="planname" >' + vSchedCatTag + '</span></td>' + GoalSectionTags + '</tr>';
+                planLevel = planLevel + '<tr class= "tree" ><td style="white-space:nowrap;" class="active" class="plannameLI" id="' + vSchedCatStr + '"> <img class="plusminus"> <span class="planname" >' + vSchedCatTag + '</span></td>' + GoalSectionTags + '</tr>';
             }
         }
-
     }
     return planLevel
 }
 
-function GetIssueNode(retrievedPlanRecords, PatientId, PlanId) {
-
-    var issueLevel = "";
-    var CurrIssueId = "";
-    var CurrIssueId_li = "";
-    var PrvIssueId = "";
-    var IssueArray = [];
-    var GoalNodeTags = "";
-    retrievedIssueRecords = retrievedPlanRecords;
-
-    if (retrievedIssueRecords.length > 0) //No matching Care plan found, create new care plan
-    {
-        for (var i = 0; i < retrievedIssueRecords.length; i++) {
-
-            var CurrPlanId = retrievedIssueRecords[i].attributes["tri_careplanid"].id
-
-            if (CurrPlanId == PlanId) {
-
-                CurrIssueId = retrievedIssueRecords[i].attributes["tri_careplanissueid"].id;
-                PlanIssueConcatid = CurrPlanId + CurrIssueId;
-                CurrIssueId_li = retrievedIssueRecords[i].attributes["tri_careplanissueid"].id + "_li";
-                var IndexOfIssue = IssueArray.indexOf(CurrIssueId);
-                if (IndexOfIssue === -1) {
-                    IssueArray.push(CurrIssueId);
-                    //var issueName = retrieveName(CurrIssueId, "tri_cccareplanissueSet");
-                    var issueName = retrievedIssueRecords[i].attributes["tri_issuename"].value;
-
-                    if (GetGoalNode(retrievedIssueRecords, PatientId, PlanId, CurrIssueId) != "") {
-                        GoalNodeTags = '<ul class="goalULclass">' + GetGoalNode(retrievedIssueRecords, PatientId, PlanId, CurrIssueId) + '</ul>';
-                    }
-                    else { GoalNodeTags = "" };
-
-                    if (retrievedIssueRecords[i].attributes["tri_issueselected"].value === true) { // set checkbox based on join field value
-                        flgchcked = '<input type="checkbox" class = "chkboxclass" name="issuechkbox" align= "center" value="' + PlanIssueConcatid + '"  checked/>';
-                    }
-                    else {
-
-                        flgchcked = '<input type="checkbox" class = "chkboxclass" name="issuechkbox" align= "center" value="' + PlanIssueConcatid + '"  />';
-
-                    }
-                    issueLevel = issueLevel +
-                        '<li class="issuenameLI" id="' + CurrIssueId_li + '">' + flgchcked + '<a><img class="plusminus" /></a><span class="issuename" id = "' + CurrIssueId + '">' + issueName + '</span>' + GoalNodeTags + '</li>'
-
-                }
-            }
-        }
-
-    }
-    return issueLevel;
-}
-
 function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
-
     var goalLevel = "";
     var CurrGoalId = "";
     var PrvGoalId = "";
@@ -169,10 +92,7 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
     var vGoalSectionTag = "";
     var vGoalSectionStr = "";
 
-    //var tri_activitydescription= "";
-    //retrievedGoalRecords = XrmServiceToolkit.Soap.Fetch(FetchXmlgoal);
     retrievedGoalRecords = retrievedPlanRecords;
-    //alert(retrievedPlanRecords.length);
     if (retrievedGoalRecords.length > 0) //No matching Care plan found, create new care plan
     {
         for (var i = 0; i < retrievedGoalRecords.length; i++) {
@@ -181,7 +101,6 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
             var CurrPlanGoalId = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id;
             var CurrSchedCat = retrievedGoalRecords[i].attributes["tri_schedulecategory"].value;
 
-            //if (CurrPlanId == PlanId ) {
             if (CurrSchedCat == SchedCat) {
                 var CurrGoalId = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id;
                 var CurrVitalType = retrievedGoalRecords[i].attributes["tri_vitalvaluetypename"].value;
@@ -191,6 +110,7 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
                 var SchedCat_cls = SchedCat + "_cls";
                 if (retrievedGoalRecords[i].attributes["tri_goalsection"] != undefined) {
 
+                    // Type & Details
                     vGoalSectionStr = retrievedPlanRecords[i].attributes["tri_goalsection"].value;
                     switch (vGoalSectionStr) {
                         case 100000000:
@@ -220,23 +140,18 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
                     }
                 }
 
-                //var indexOfGoal = GoalArray.indexOf(CurrVitalType);
                 var indexOfSection = SectionArray.indexOf(vGoalSectionTag);
 
                 if (indexOfSection === -1) {
                     SectionArray.push(vGoalSectionTag);
-                    //var goalName = retrieveName(CurrGoalId, "tri_cccareplangoalSet");
-                    //var goalName = retrievedGoalRecords[i].attributes["tri_goalname"].value;
-                    //var goalSelected = retrievedGoalRecords[i].attributes["tri_goalselected"].value;
-                    //var varGoalColor = setGoalColor(retrievedGoalRecords[i].attributes["new_goalstate"].value);
                     var varCatSectionConcatId = SchedCat + "_" + vGoalSectionStr;
 
                     if (GetGoalDetailsNode(retrievedPlanRecords, CurrVitalType, SchedCat, vGoalSectionStr) != "") {
-                        //GoalNodeTags = '<ul class="goalULclass">' + GetGoalNode(retrievedPlanRecords, PatientId, CurrPlanId) + '</ul>';
                         GoalNodeDetailsTags = GetGoalDetailsNode(retrievedPlanRecords, CurrVitalType, SchedCat, vGoalSectionStr);
                     }
-                    else { GoalNodeDetailsTags = "" };
-                    //alert(GoalNodeDetailsTags);
+                    else { 
+                        GoalNodeDetailsTags = "" 
+                    };
 
                     if (retrievedGoalRecords[i].attributes["tri_goalselected"].value === true) { // set checkbox based on join field value
                         flgchcked = '<input type="checkbox" level="parent" class = "chkboxclass" name="' + CurrVitalType + '"  value="' + PlanGoalConcatid + '"  checked/>';
@@ -244,15 +159,8 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
                     else {
 
                         flgchcked = '<input type="checkbox" level="parent" class = "chkboxclass" name="' + CurrVitalType + '"  value="' + PlanGoalConcatid + '"/>';
-
                     }
-
-
-                    // goalLevel = goalLevel + '<tr class="goalrow"><td style="padding-left: 25px; white-space:nowrap;" class="active" class="goalnameLI" parentplanid="' + ParentPlanId + '" id="' + CurrGoalId_li + '"><img class="plusminus" /> <span style="vertical-align:middle">' + flgchcked + '</span> <span class="goalname" id = "' + CurrGoalId + '">' + CurrVitalType + '</span></td>' + GoalNodeDetailsTags + '</tr>';
-
                     goalLevel = goalLevel + '<tr class="goalrow" parentclass ="' + SchedCat_cls + '"><td style="padding-left: 25px; white-space:nowrap;" class="active" class="goalnameLI" parentschedcatid="' + SchedCat + '" id="' + varCatSectionConcatId + '"><img class="plusminus" />  <span style="vertical-align:middle">' + flgchcked + '</span> <span class="goalname" id = "' + CurrGoalId + '">' + vGoalSectionTag + '</span></td>' + GoalNodeDetailsTags + '</tr>';
-
-
                 }
             }
         }
@@ -276,10 +184,7 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
     var vActivityAssgmntRole;
     var vActivityAssgmntRoleStr;
 
-
-    //alert(FetchXmlGD);
     retrievedGoalRecords1 = retrievedPlanRecords;
-    //alert( retrievedGoalRecords1.length);
     if (retrievedGoalRecords1.length > 0) //No matching Care plan found, create new care plan
     {
         for (var i = 0; i < retrievedGoalRecords1.length; i++) {
@@ -299,21 +204,15 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
             var CurrGoalSection = retrievedGoalRecords1[i].attributes["tri_goalsection"].value;
             var currVitalTypeName = retrievedGoalRecords1[i].attributes["tri_vitalvaluetypename"].value;
             var currCplanName = retrievedGoalRecords1[i].attributes["tri_planname"].value;
-            //var MeasureDetails = retrievedGoalRecords1[i].attributes["tri_measuredetails"].value;
 
-            //if (CurrVitalType === VitalTypeName) {
             if (CurrSchedCat === SchedCatdtl && CurrGoalSection === GoalSectiondtl) {
 
-
-                // var SchedCatSectnInt = SchedCatdtl + GoalSectiondtl;
                 var SchedCatSectnCls = SchedCatdtl + "_" + GoalSectiondtl + "_cls";
                 var CurrPlanId = retrievedGoalRecords1[i].attributes["tri_careplanid"].id;
                 var CurrGoalId = retrievedGoalRecords1[i].attributes["tri_careplangoalid"].id;
                 var CurrGoalId_li = retrievedGoalRecords1[i].attributes["tri_careplangoalid"].id + "_li";
                 var goalSelected = retrievedGoalRecords1[i].attributes["tri_goalselected"].value;
                 var careplanjoin = retrievedGoalRecords1[i].attributes["tri_careplanjoinid"].value;
-
-                //vTargetMetricOperator = 'metricoperator' + careplanjoin;
 
                 if (retrievedGoalRecords1[i].attributes["tri_metric"] != undefined) {
                     TargetValue = retrievedGoalRecords[i].attributes["tri_metric"].value;
@@ -330,8 +229,6 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
                 if (retrievedGoalRecords1[i].attributes["tri_activitydescription"] != undefined) {
                     vActivityDescription = retrievedGoalRecords[i].attributes["tri_activitydescription"].value;
                 }
-
-
 
                 if (retrievedGoalRecords1[i].attributes["tri_patientfactor"] != undefined) {
 
@@ -368,13 +265,10 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
                         case -1:
                             vPatientfactor = '<div><select class="PatientfactorSelectId" ><option value="-100000000" selected></option><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option><option value="100000004">All</option><option value="100000005">Normal</option><option value="100000006">Abnormal</option></select></div>';
                             break;
-
                     }
-
                 }
                 else {
                     vPatientfactor = '<div><select class="PatientfactorSelectId" ><option value="-100000000" selected></option><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option><option value="100000004">All</option><option value="100000005">Normal</option><option value="100000006">Abnormal</option></select></div>';
-
                 }
 
                 if (retrievedGoalRecords1[i].attributes["tri_targetmetricoperator"] != undefined) {
@@ -472,7 +366,8 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
 
 
 
-                goaldetailLevel = goaldetailLevel + '<tr class="goalrowdetail" parentCatSectionClass="' + SchedCatSectnCls + '" parentgoalid="' + CurrGoalId_li + '"><td></td><td class = "chkboxclasstd" style="text-align:center">' + flgchcked
+                goaldetailLevel = goaldetailLevel +
+                    '<tr class="goalrowdetail" parentCatSectionClass="' + SchedCatSectnCls + '" parentgoalid="' + CurrGoalId_li + '"><td></td><td class = "chkboxclasstd" style="text-align:center">' + flgchcked
                 // + '</span></td><td style="text-align:center"><div><select id="metricoperator' + careplanjoin + '"><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option></select></div></td>' +
                  + '</td><td style="text-align:left">' + currVitalTypeName + '</td><td style="text-align:center">' + vPatientfactor + '</td>' +
                       '<td style="text-align:center">' + vTargetMetricOperator + '</td>' +
@@ -488,9 +383,83 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
                       '<td>' + vActivityAssgmntRole + '</td>' + //Activity Assignment Role
                       '<td>' + vActivityDescription + '</td>' + //Activity Description
                       '<td style="text-align:left">' + currCplanName + '</td>' + //care plan
-                      '<tr>'
+                      '<tr>';
 
-
+                
+            //    '<div id=''>'+
+            //    '<ul id="detailsList" class="w3-navbar w3-black">
+            //        <li class="lifirstchild" style="background-color:#0072C6;margin-top:10px;"><a href="#" onclick="openTab(this, 'All', '#0072C6')">+</a></li>
+            //        <li style="background-color:#FF4444;margin-top:10px;"><a href="#" onclick="openTab(this,'One','#FF4444')">1</a></li>
+            //        <li style="background-color: #99CC00; margin-top: 10px;"><a href="#" onclick="openTab(this, 'Four', '#99CC00')">4</a></li>
+            //        <li style="background-color:#666666;margin-top:10px;"><a href="#" onclick="openTab(this,'calender','#666666')">1&nbsp;</a>
+            //        </li>
+            //        <li><span>Symptoms</span></li>
+            //    </ul>
+            //    <div id="detailsBlock">
+            //        <div id="All" class="symptoms" style="display:none;">
+            //            <div class="careaPlans">
+            //                <div style="">
+            //                    <span>Hyperglycemia (BG > 200)</span>
+            //                    <span>minimize frequency</span>
+            //                    <span>frequency minimized</span>
+            //                    <span>4/1/2016</span>
+            //                    <span>4/1/17(6 months)</span>
+            //                    <span><a href="#" onclick="openTypeDetailsDescription(this)">...</a></span>
+            //                </div>
+            //            </div>
+            //        </div>
+            //        <div id="One" class="symptoms">
+            //            <div class="careaPlans">
+            //                <div style="">
+            //                    <span>
+            //                        Breathing Symptoms
+            //                        <p>- Short of breath</p>
+            //                        <p>- Wheezing</p>
+            //                        <p>- Cough</p>
+            //                        <p>- Sputum production</p>
+            //                    </span>
+            //                    <span>none</span>
+            //                    <span>severe coughing continues</span>
+            //                    <span>4/1/2016</span>
+            //                    <span>4/1/17 OVERDUE</span>
+            //                    <span><a href="#">...</a></span>
+            //                </div>
+            //            </div>
+            //        </div>
+            //        <div id="Four" class="symptoms" style="display:none;">
+            //            <div class="careaPlans">
+            //                <div style="">
+            //                    <span>Able to Speak Full Sentences</span>
+            //                    <span>yes</span>
+            //                    <span>yes</span>
+            //                    <span>4/1/2016</span>
+            //                    <span>4/1/17(3 months)</span>
+            //                    <span><a href="#">...</a></span>
+            //                </div>
+            //            </div>
+            //        </div>
+            //        <div id="calender" class="symptoms" style="display:none;">
+            //            <div class="careaPlans">
+            //                <div style="">
+            //                    <span>
+            //                        Breathing Symptoms
+            //                        <p>- Short of breath</p>
+            //                        <p>- Wheezing</p>
+            //                        <p>- Cough</p>
+            //                        <p>- Sputum production</p>
+            //                    </span>
+            //                    <span>none</span>
+            //                    <span>severe coughing continues</span>
+            //                    <span>4/1/2016</span>
+            //                    <span>4/1/17 OVERDUE</span>
+            //                    <span><a href="#">...</a></span>
+            //                </div>
+            //            </div>
+            //        </div>
+            //    </div>
+            //</div>
+            //<div class="clear"></div>
+            //<div id="actions" style="width:100%;height:2px;border:1px solid #cccccc;margin-top:10px;background-color:#cccccc;"></div>';
                 //}
             }
         }
@@ -499,25 +468,3 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
     //goaldetailLevel = '<tr><td></td><td>Hello</td><tr>';
     return goaldetailLevel;
 }
-
-function retrieveMultipleOperationAsync(contactId) {
-    XrmSvcToolkit.retrieveMultiple({
-        entityName: "Contact",
-        odataQuery: "$select=BirthDate,ContactId,CreditLimit,DoNotEMail,DoNotPhone,FamilyStatusCode,FirstName,GenderCode,LastName,MiddleName&$filter=ContactId eq guid'" + contactId + "'",
-        async: true,
-        successCallback: function (results) {
-            alert("RetrieveMultiple=Just retrieved: " + results[0].FirstName + " " + results[0].MiddleName + " " + results[0].LastName);
-        },
-        errorCallback: function (error) {
-            throw error;
-        }
-    });
-}
-
-
-
-
-
-
-
-
