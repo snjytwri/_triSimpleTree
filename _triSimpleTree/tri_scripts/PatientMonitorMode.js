@@ -1,4 +1,7 @@
-﻿function GetPlanNode(PatientId) {
+﻿/// Comment for local changes
+/// var CarePlanMonData;
+
+function GetPlanNodefornewUI(PatientId) {
 
     var FetchXmlplan =
      "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>" +
@@ -50,36 +53,44 @@
     var vSchedCatTag = "";
     retrievedPlanRecords = XrmServiceToolkit.Soap.Fetch(FetchXmlplan);
 
-    if (retrievedPlanRecords.length > 0) //No matching Care plan found, create new care plan
-    {
-        for (var i = 0; i < retrievedPlanRecords.length; i++) {
-            CurrPlanId = retrievedPlanRecords[i].attributes["tri_careplanid"].id;
-            CurrPlanId_td = retrievedPlanRecords[i].attributes["tri_careplanid"].id + "_td";
-            CurrPlanId_tr = retrievedPlanRecords[i].attributes["tri_careplanid"].id + "_tr";
-            if (retrievedPlanRecords[i].attributes["tri_schedulecategory"] != undefined) {
-                vSchedCatStr = retrievedPlanRecords[i].attributes["tri_schedulecategory"].value;
-                switch (vSchedCatStr) {
-                    case 100000000:
-                        vSchedCatTag = "Care Management Schedule";
-                        break;
-                    case 100000001:
-                        vSchedCatTag = "Care Transition Schedule";
-                        break;
-                }
-            }
-            var IndexOfCat = CatArray.indexOf(vSchedCatTag);
-            if (IndexOfCat === -1) {
-                CatArray.push(vSchedCatTag);
+    return retrievedPlanRecords;
 
-                if (GetSectionNode(retrievedPlanRecords, PatientId, CurrPlanId, vSchedCatStr) != "") {
-                    GoalSectionTags = GetSectionNode(retrievedPlanRecords, PatientId, CurrPlanId, vSchedCatStr);
-                }
-                else { GoalSectionTags = "" };
-                planLevel = planLevel + '<tr class= "tree" ><td style="white-space:nowrap;" class="active" class="plannameLI" id="' + vSchedCatStr + '"> <img class="plusminus"> <span class="planname" >' + vSchedCatTag + '</span></td>' + GoalSectionTags + '</tr>';
-            }
-        }
-    }
-    return planLevel
+    //if (retrievedPlanRecords.length > 0) //No matching Care plan found, create new care plan
+    //{
+    //    for (var i = 0; i < retrievedPlanRecords.length; i++) {
+    //        CurrPlanId = retrievedPlanRecords[i].attributes["tri_careplanid"].id;
+    //        CurrPlanId_td = retrievedPlanRecords[i].attributes["tri_careplanid"].id + "_td";
+    //        CurrPlanId_tr = retrievedPlanRecords[i].attributes["tri_careplanid"].id + "_tr";
+    //        if (retrievedPlanRecords[i].attributes["tri_schedulecategory"] != undefined) {
+    //            vSchedCatStr = retrievedPlanRecords[i].attributes["tri_schedulecategory"].value;
+    //            switch (vSchedCatStr) {
+    //                case 100000000:
+    //                    vSchedCatTag = "Care Management Schedule";
+    //                    break;
+    //                case 100000001:
+    //                    vSchedCatTag = "Care Transition Schedule";
+    //                    break;
+    //            }
+    //        }
+    //        var IndexOfCat = CatArray.indexOf(vSchedCatTag);
+    //        if (IndexOfCat === -1) {
+    //            CatArray.push(vSchedCatTag);
+
+    //            if (GetSectionNode(retrievedPlanRecords, PatientId, CurrPlanId, vSchedCatStr) != "") {
+    //                GoalSectionTags = GetSectionNode(retrievedPlanRecords, PatientId, CurrPlanId, vSchedCatStr);
+    //            }
+    //            else { GoalSectionTags = "" };
+    //            planLevel = planLevel +
+    //                //'<tr class= "tree" ><td style="white-space:nowrap;" class="active" class="plannameLI" id="' +
+    //                //vSchedCatStr
+    //                //+ '"> <img class="plusminus"> <span class="planname" >' + vSchedCatTag + '</span></td>' + GoalSectionTags + '</tr>';
+
+    //            '<div><div style="white-space:nowrap;" class="plannameLI" id="' + vSchedCatStr + '">' + vSchedCatTag + '</span></div>' + GoalSectionTags + '</div>';
+    //            //vSchedCatTag // we can bind this with 'Care Plan Monitor'
+    //        }
+    //    }
+    //}
+    // return planLevel
 }
 
 function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
@@ -87,6 +98,7 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
     var CurrGoalId = "";
     var PrvGoalId = "";
     var GoalArray = [];
+    var GoalState = [];
     var SectionArray = [];
     var GoalNodeDetailsTags = "";
     var vGoalSectionTag = "";
@@ -97,13 +109,13 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
     {
         for (var i = 0; i < retrievedGoalRecords.length; i++) {
 
-            var CurrPlanId = retrievedGoalRecords[i].attributes["tri_careplanid"].id;
-            var CurrPlanGoalId = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id;
-            var CurrSchedCat = retrievedGoalRecords[i].attributes["tri_schedulecategory"].value;
+            var CurrPlanId = retrievedGoalRecords[i].attributes["tri_careplanid"].id;  // curent plan Id
+            var CurrPlanGoalId = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id; // Current goal Id
+            var CurrSchedCat = retrievedGoalRecords[i].attributes["tri_schedulecategory"].value;  // ????
 
             if (CurrSchedCat == SchedCat) {
                 var CurrGoalId = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id;
-                var CurrVitalType = retrievedGoalRecords[i].attributes["tri_vitalvaluetypename"].value;
+                var CurrVitalType = retrievedGoalRecords[i].attributes["tri_vitalvaluetypename"].value;  // type
                 var PlanGoalConcatid = CurrPlanId + CurrGoalId + "_vital";
                 var ParentPlanId = retrievedGoalRecords[i].attributes["tri_careplanid"].id + "_td";
                 var CurrGoalId_li = retrievedGoalRecords[i].attributes["tri_careplangoalid"].id + "_li";
@@ -143,7 +155,8 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
                 var indexOfSection = SectionArray.indexOf(vGoalSectionTag);
 
                 if (indexOfSection === -1) {
-                    SectionArray.push(vGoalSectionTag);
+                    SectionArray.push(vGoalSectionTag);  // goal scetion
+
                     var varCatSectionConcatId = SchedCat + "_" + vGoalSectionStr;
 
                     if (GetGoalDetailsNode(retrievedPlanRecords, CurrVitalType, SchedCat, vGoalSectionStr) != "") {
@@ -153,14 +166,34 @@ function GetSectionNode(retrievedPlanRecords, PatientId, PlanId, SchedCat) {
                         GoalNodeDetailsTags = "" 
                     };
 
-                    if (retrievedGoalRecords[i].attributes["tri_goalselected"].value === true) { // set checkbox based on join field value
-                        flgchcked = '<input type="checkbox" level="parent" class = "chkboxclass" name="' + CurrVitalType + '"  value="' + PlanGoalConcatid + '"  checked/>';
-                    }
-                    else {
+                    //if (retrievedGoalRecords[i].attributes["tri_goalselected"].value === true) { // set checkbox based on join field value
+                    //    flgchcked = '<input type="checkbox" level="parent" class = "chkboxclass" name="' + CurrVitalType + '"  value="' + PlanGoalConcatid + '"  checked/>';
+                    //}
+                    //else {
 
-                        flgchcked = '<input type="checkbox" level="parent" class = "chkboxclass" name="' + CurrVitalType + '"  value="' + PlanGoalConcatid + '"/>';
-                    }
-                    goalLevel = goalLevel + '<tr class="goalrow" parentclass ="' + SchedCat_cls + '"><td style="padding-left: 25px; white-space:nowrap;" class="active" class="goalnameLI" parentschedcatid="' + SchedCat + '" id="' + varCatSectionConcatId + '"><img class="plusminus" />  <span style="vertical-align:middle">' + flgchcked + '</span> <span class="goalname" id = "' + CurrGoalId + '">' + vGoalSectionTag + '</span></td>' + GoalNodeDetailsTags + '</tr>';
+                    //    flgchcked = '<input type="checkbox" level="parent" class = "chkboxclass" name="' + CurrVitalType + '"  value="' + PlanGoalConcatid + '"/>';
+                    //}
+                    //goalLevel = goalLevel + '<tr class="goalrow" parentclass ="' +
+                    //            SchedCat_cls + '"><td style="padding-left: 25px; white-space:nowrap;" class="active" class="goalnameLI" parentschedcatid="' +
+                    //            SchedCat + '" id="' + varCatSectionConcatId + '"><img class="plusminus" />  <span style="vertical-align:middle">' +
+                    //            flgchcked + '</span> <span class="goalname" id = "' + CurrGoalId + '">' +
+                    //            vGoalSectionTag + '</span></td>' +
+                    //            GoalNodeDetailsTags + '</tr>';
+
+                    //added section for new UI
+                    goalLevel = goalLevel +
+                    '<div>' +
+                       '<ul id="" class="w3-navbar w3-black"><li class="lifirstchild" style="background-color:#0072C6;margin-top:10px;">' +
+                       '<a href="#" onclick="openTab(this, "All", "#0072C6")">+</a></li>' +
+                       '<li style="background-color:#FF4444;margin-top:10px;"><a href="#" onclick="openTab(this,"One","#FF4444")">1</a></li>' +
+                       '<li style="background-color: #99CC00; margin-top: 10px;"><a href="#" onclick="openTab(this, "Four", "#99CC00")">4</a></li>' +
+                       '<li style="background-color:#666666;margin-top:10px;"><a href="#" onclick="openTab(this,"calender","#666666")">1&nbsp;</a></li>' +
+                       //'<li><span>' + vGoalSectionTag + '</span></li>' +
+                       '<li><span>' + "vGoalSectionTag" + '</span></li>' +
+                       //'</ul>' + GoalNodeDetailsTags + '</div>' +
+                       '</ul>' + "GoalNodeDetailsTags" + '</div>' +
+                     '<div class="clear"></div>' +
+                    '<div id="actions" style="width:100%;height:2px;border:1px solid #cccccc;margin-top:10px;background-color:#cccccc;"></div>';
                 }
             }
         }
@@ -215,7 +248,7 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
                 var careplanjoin = retrievedGoalRecords1[i].attributes["tri_careplanjoinid"].value;
 
                 if (retrievedGoalRecords1[i].attributes["tri_metric"] != undefined) {
-                    TargetValue = retrievedGoalRecords[i].attributes["tri_metric"].value;
+                    TargetValue = retrievedGoalRecords[i].attributes["tri_metric"].value; //////////////////////////////////////////
                 }
 
                 if (retrievedGoalRecords1[i].attributes["tri_measuredetails"] != undefined) {
@@ -363,108 +396,84 @@ function GetGoalDetailsNode(retrievedPlanRecords, VitalTypeName, SchedCatdtl, Go
 
                 }
 
-
+                //goaldetailLevel = goaldetailLevel +
+                //    '<tr class="goalrowdetail" parentCatSectionClass="' + SchedCatSectnCls + '" parentgoalid="' + CurrGoalId_li + '"><td></td><td class = "chkboxclasstd" style="text-align:center">' + flgchcked
+                //// + '</span></td><td style="text-align:center"><div><select id="metricoperator' + careplanjoin + '"><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option></select></div></td>' +
+                // + '</td><td style="text-align:left">' + currVitalTypeName + '</td><td style="text-align:center">' + vPatientfactor + '</td>' +
+                //      '<td style="text-align:center">' + vTargetMetricOperator + '</td>' +
+                //      '<td style="text-align:center">' + TargetValue + '</td>' +
+                //      '<td style="text-align:center"><div><select class="ActionMetricOperatorSelectCls"><option value="167410000">></option><option value="167410001"><</option><option value="167410002">=</option><option value="167410003">% Decrease</option><option value="167410004">% Increase</option></select></div></td>' +
+                //      '<td style="text-align:center">' + vActiontriggerValue + '</td>' +
+                //      //'<td style="text-align:center"><input type="checkbox" name="autoactivitychkbox" align= "center" /></td>' + //AutocreateActivity?
+                //      '<td>' + vMeasureDtl + '</td>' + //measure details
+                //      //'<td>' + '+ + '</td>' + //Activity Create On
+                //      //'<td>' + '+ + '</td>' + //Activity Due On  ---------- Next Due date
+                //      '<td>' + '+ + '</td>' + ///Activity Recurrence ---------- Next Due date
+                //      //'<td>' + '+ + '</td>' + //Number Of Recurrences
+                //      '<td>' + vActivityAssgmntRole + '</td>' + //Activity Assignment Role
+                //      '<td>' + vActivityDescription + '</td>' + //Activity Description
+                //      '<td style="text-align:left">' + currCplanName + '</td>' + //care plan
+                //      '<tr>';
 
 
                 goaldetailLevel = goaldetailLevel +
-                    '<tr class="goalrowdetail" parentCatSectionClass="' + SchedCatSectnCls + '" parentgoalid="' + CurrGoalId_li + '"><td></td><td class = "chkboxclasstd" style="text-align:center">' + flgchcked
-                // + '</span></td><td style="text-align:center"><div><select id="metricoperator' + careplanjoin + '"><option value="100000000">Most Patients</option><option value="100000001">Elderly Frail</option><option value="100000002">Comorbid</option><option value="100000003">Stage 2-3</option></select></div></td>' +
-                 + '</td><td style="text-align:left">' + currVitalTypeName + '</td><td style="text-align:center">' + vPatientfactor + '</td>' +
-                      '<td style="text-align:center">' + vTargetMetricOperator + '</td>' +
-                      '<td style="text-align:center">' + TargetValue + '</td>' +
-                      '<td style="text-align:center"><div><select class="ActionMetricOperatorSelectCls"><option value="167410000">></option><option value="167410001"><</option><option value="167410002">=</option><option value="167410003">% Decrease</option><option value="167410004">% Increase</option></select></div></td>' +
-                      '<td style="text-align:center">' + vActiontriggerValue + '</td>' +
-                      //'<td style="text-align:center"><input type="checkbox" name="autoactivitychkbox" align= "center" /></td>' + //AutocreateActivity?
-                      '<td>' + vMeasureDtl + '</td>' + //measure details
-                      //'<td>' + '' + '</td>' + //Activity Create On
-                      //'<td>' + '' + '</td>' + //Activity Due On
-                      '<td>' + '' + '</td>' + //Activity Recurrence
-                      //'<td>' + '' + '</td>' + //Number Of Recurrences
-                      '<td>' + vActivityAssgmntRole + '</td>' + //Activity Assignment Role
-                      '<td>' + vActivityDescription + '</td>' + //Activity Description
-                      '<td style="text-align:left">' + currCplanName + '</td>' + //care plan
-                      '<tr>';
+                '<div id="">' +
+                    '<div id="" class="symptoms" style="display:none;">' +
+                        '<div class="careaPlans">' +
+                            '<div style="">' +
+                                '<span>' + currVitalTypeName + '</span>' +
+                                '<span>' + TargetValue + '</span>' +
+                                '<span>frequency minimized</span>' +
+                                '<span>4/1/2016</span>' +
+                                '<span>4/1/17(6 months)</span>' +
+                                '<span><a href="#" onclick="openTypeDetailsDescription(this)">...</a></span>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>'
+                //+
+                //'<div id="One" class="symptoms">'+
+                //   '<div class="careaPlans">'+
+                //        '<div style="">'+
+                //            '<span> Breathing Symptoms</span>'+
+                //            '<span>none</span>'+
+                //            '<span>severe coughing continues</span>'+
+                //            '<span>4/1/2016</span>'+
+                //            '<span>4/1/17 OVERDUE</span>'+
+                //            '<span><a href="#">...</a></span>'+
+                //        '</div>'+
+                //    '</div>'+
+                //'</div>'+
+                //'<div id="Four" class="symptoms" style="display:none;">'+
+                //    '<div class="careaPlans">'+
+                //        '<div style="">'+
+                //            '<span>Able to Speak Full Sentences</span>'+
+                //            '<span>yes</span>'+
+                //            '<span>yes</span>'+
+                //            '<span>4/1/2016</span>'+
+                //            '<span>4/1/17(3 months)</span>'+
+                //            '<span><a href="#">...</a></span>'+
+                //        '</div>'+
+                //    '</div>'+
+                //'</div>'+
+                //'<div id="calender" class="symptoms" style="display:none;">'+
+                //    '<div class="careaPlans">'+
+                //        '<div style="">'+
+                //            '<span> Breathing Symptoms</span>'+
+                //            '<span>none</span>'+
+                //            '<span>severe coughing continues</span>'+
+                //            '<span>4/1/2016</span>'+
+                //            '<span>4/1/17 OVERDUE</span>'+
+                //            '<span><a href="#">...</a></span>'+
+                //        '</div>'+
+                //    '</div>'+
+                //    '</div>'+
+                //'</div>'
+                ;
 
-                
-            //    '<div id=''>'+
-            //    '<ul id="detailsList" class="w3-navbar w3-black">
-            //        <li class="lifirstchild" style="background-color:#0072C6;margin-top:10px;"><a href="#" onclick="openTab(this, 'All', '#0072C6')">+</a></li>
-            //        <li style="background-color:#FF4444;margin-top:10px;"><a href="#" onclick="openTab(this,'One','#FF4444')">1</a></li>
-            //        <li style="background-color: #99CC00; margin-top: 10px;"><a href="#" onclick="openTab(this, 'Four', '#99CC00')">4</a></li>
-            //        <li style="background-color:#666666;margin-top:10px;"><a href="#" onclick="openTab(this,'calender','#666666')">1&nbsp;</a>
-            //        </li>
-            //        <li><span>Symptoms</span></li>
-            //    </ul>
-            //    <div id="detailsBlock">
-            //        <div id="All" class="symptoms" style="display:none;">
-            //            <div class="careaPlans">
-            //                <div style="">
-            //                    <span>Hyperglycemia (BG > 200)</span>
-            //                    <span>minimize frequency</span>
-            //                    <span>frequency minimized</span>
-            //                    <span>4/1/2016</span>
-            //                    <span>4/1/17(6 months)</span>
-            //                    <span><a href="#" onclick="openTypeDetailsDescription(this)">...</a></span>
-            //                </div>
-            //            </div>
-            //        </div>
-            //        <div id="One" class="symptoms">
-            //            <div class="careaPlans">
-            //                <div style="">
-            //                    <span>
-            //                        Breathing Symptoms
-            //                        <p>- Short of breath</p>
-            //                        <p>- Wheezing</p>
-            //                        <p>- Cough</p>
-            //                        <p>- Sputum production</p>
-            //                    </span>
-            //                    <span>none</span>
-            //                    <span>severe coughing continues</span>
-            //                    <span>4/1/2016</span>
-            //                    <span>4/1/17 OVERDUE</span>
-            //                    <span><a href="#">...</a></span>
-            //                </div>
-            //            </div>
-            //        </div>
-            //        <div id="Four" class="symptoms" style="display:none;">
-            //            <div class="careaPlans">
-            //                <div style="">
-            //                    <span>Able to Speak Full Sentences</span>
-            //                    <span>yes</span>
-            //                    <span>yes</span>
-            //                    <span>4/1/2016</span>
-            //                    <span>4/1/17(3 months)</span>
-            //                    <span><a href="#">...</a></span>
-            //                </div>
-            //            </div>
-            //        </div>
-            //        <div id="calender" class="symptoms" style="display:none;">
-            //            <div class="careaPlans">
-            //                <div style="">
-            //                    <span>
-            //                        Breathing Symptoms
-            //                        <p>- Short of breath</p>
-            //                        <p>- Wheezing</p>
-            //                        <p>- Cough</p>
-            //                        <p>- Sputum production</p>
-            //                    </span>
-            //                    <span>none</span>
-            //                    <span>severe coughing continues</span>
-            //                    <span>4/1/2016</span>
-            //                    <span>4/1/17 OVERDUE</span>
-            //                    <span><a href="#">...</a></span>
-            //                </div>
-            //            </div>
-            //        </div>
-            //    </div>
-            //</div>
-            //<div class="clear"></div>
-            //<div id="actions" style="width:100%;height:2px;border:1px solid #cccccc;margin-top:10px;background-color:#cccccc;"></div>';
-                //}
             }
         }
-    }
 
-    //goaldetailLevel = '<tr><td></td><td>Hello</td><tr>';
-    return goaldetailLevel;
+        //goaldetailLevel = '<tr><td></td><td>Hello</td><tr>';
+        return goaldetailLevel;
+    }
 }

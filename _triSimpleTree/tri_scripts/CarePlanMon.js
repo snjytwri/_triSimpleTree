@@ -7,7 +7,7 @@ $(function () {
     //});
 
     $('#addplan').click(function () {
-        GetPlanNode(1);
+       // GetPlanNode(1);
     });
 
     openTab($('#detailsList li a'), "All", '#0072C6', true);
