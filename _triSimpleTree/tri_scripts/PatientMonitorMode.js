@@ -1,5 +1,5 @@
 ﻿/// Comment for local changes
-/// var CarePlanMonData;
+var aggregatedObject;
 
 function GetPlanNodefornewUI(PatientId) {
 

@@ -1,11 +1,6 @@
 ﻿"use strict";
 
 $(function () {
-
-    //$('#addNewCarePlan').click(function () {
-    //    opendialog("AddNewCarePlan.html");
-    //});
-
     $('#addplan').click(function () {
        // GetPlanNode(1);
     });

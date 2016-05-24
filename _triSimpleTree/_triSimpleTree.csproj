@@ -60,11 +60,13 @@
     <Content Include="MonitorModev2_files\u456" />
     <Content Include="tri_css\kendo.common.min.css" />
     <Content Include="tri_css\kendo.default.min.css" />
+    <Content Include="tri_html\StierSolutionlocal.html" />
     <Content Include="tri_scripts\CarePlanMonData.js" />
-    <None Include="tri_scripts\JSLINQ-vsdoc.js" />
-    <Content Include="tri_scripts\JSLINQ.js" />
     <Content Include="tri_scripts\kendo.all.min.js" />
     <Content Include="tri_scripts\kendo.js" />
+    <Content Include="tri_scripts\linq - Copy.js" />
+    <Content Include="tri_scripts\linq.js" />
+    <Content Include="tri_scripts\linq.min.js" />
     <Content Include="_imgs\imagestrips\transparent_spacer.png" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

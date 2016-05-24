@@ -16,10 +16,8 @@
     <script src="../tri_scripts/json2.js" type="text/javascript"></script>
 
     <!----------------Uncomment for server Chnages --------------------------------------------->
-
-    <script src="../tri_scripts/xrmservicetoolkit.js" type="text/javascript"></script>
-    <script src="../clientglobalcontext.js.aspx" type="text/javascript"></script>
-
+    <!-- <script src="../tri_scripts/XrmServiceToolkit.js" type="text/javascript"></script> --->
+    <!-- <script src="../ClientGlobalContext.js.aspx" type="text/javascript"></script>--------->
     <!----------------------------------------------------------------------------------------->
     <script src="../tri_scripts/linq.min.js"></script>
     <script src="../tri_scripts/linq.js"></script>
@@ -27,20 +25,19 @@
     <script src="../tri_scripts/PatientMonitorMode.js"></script>
 
     <!----------------Uncomment for local Chnages ---------------------->
-    <!--<script src="../tri_scripts/CarePlanMonData.js"></script>-->
+    <script src="../tri_scripts/CarePlanMonData.js"></script>
     <!------------------------------------------------------------------>
 
     <script>
         $(document).ready(function () {
             // uncomment for local changes
-            // if (1 == 1) {
+            if (1 == 1) {
                 // uncomment for server changes
-                if (parent.Xrm !== undefined) {
-                var PatientId = parent.Xrm.Page.data.entity.getId();
-                var planLevel = GetPlanNodefornewUI(PatientId);
+                //if (parent.Xrm !== undefined) {
+                //var PatientId = parent.Xrm.Page.data.entity.getId();
+                //var planLevel = GetPlanNodefornewUI(PatientId);
 
-                // aggregatedObject = Enumerable.From(CarePlanMonData) // CarePlanMonData or planLevel
-                aggregatedObject = Enumerable.From(planLevel) // CarePlanMonData or planLevel
+                aggregatedObject = Enumerable.From(CarePlanMonData) // CarePlanMonData or planLevel
                                         .GroupBy(function (x) { return x.attributes.tri_goalsection.formattedValue; }, null,
                                                  function (key, g) {
                                                      return {
@@ -152,18 +149,6 @@
                         <span>
                             #= att.new_goalstate.formattedValue #
                         </span>
-                        <!--<span>
-                            #= att.tri_lasttargetvalue.formattedValue #
-                        </span>
-                        <span>
-                            #= att.tri_metric.formattedValue #
-                        </span>
-                        <span>
-                            #= att.tri_lastgoaldate.formattedValue #
-                        </span>
-                        <span>
-                            #= att.tri_nextduedate.formattedValue #
-                        </span>-->
                     </div>
                 </div>
             </div>

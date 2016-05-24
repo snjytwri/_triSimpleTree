@@ -161,7 +161,7 @@ z-index:0;
     float: left;
     margin-right: 3px;
     cursor: pointer;
-    font-size:10px;
+    font-size:9px;
 }
 
 .w3-navbar span {
@@ -177,14 +177,19 @@ z-index:0;
 }
 
 .lifirstchild a{
-    font-size:18px;
+    font-size:10px;
+    padding:5px;
 }
 
 .w3-navbar li:hover {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
     transform: scale(1.2);
-    font-size:8px;
+    font-size:7px;
+}
+
+.w3-navbar li:last-child {
+    width:auto;
 }
 
 .w3-navbar li:last-child:hover {
@@ -199,6 +204,13 @@ z-index:0;
     text-decoration: none;
     color: #fff;
     word-wrap: break-word;
+}
+
+.w3-navbar li span {
+    text-decoration: none;
+    color: #999999 !important;
+    word-wrap: break-word;
+    font-size:15px;
 }
 
 .w3-navbar li img{

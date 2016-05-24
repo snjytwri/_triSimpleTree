@@ -27,6 +27,10 @@
 "   <attribute name='tri_activityassignmentrole'  />" +
 "   <attribute name='tri_schedulecategory'  />" +
 "   <attribute name='tri_goalsection'  />" +
+"   <attribute name='tri_metric'/> " +
+"   <attribute name='tri_nextduedate'/> " +
+"   <attribute name='tri_lastgoaldate'/> " +
+"   <attribute name='tri_lasttargetvalue'/> " +
 "   <order attribute='tri_schedulecategory' descending='false' />" +
 "   <order attribute='tri_goalsection' descending='false' />" +
 "    <filter type='and'>" +
