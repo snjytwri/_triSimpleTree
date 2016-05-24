@@ -8,6 +8,10 @@ $(function () {
     openTab($('#detailsList li a'), "All", '#0072C6', true);
 });
 
+function htmlDecode(value) {
+    return value.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+}
+
 function opendialog(page) {
     var $dialog = $('#addNewCarePlan')
     .html('<iframe style="border: 0px; " src="' + page + '" width="100%" height="100%"></iframe>')

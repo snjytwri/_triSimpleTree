@@ -8,7 +8,7 @@
 "    <attribute name='tri_careplanissueid' />" +
 "    <attribute name='tri_careplangoalid' />" +
 "    <attribute name='tri_careplanjoinid' />" +
-"    <attribute name='tri_planname' />" +
+"    <attribute name='tri_planname' />" + 
 "    <attribute name='tri_issuename' />" +
 "    <attribute name='tri_goalname' />" +
 "    <attribute name='tri_actionname' />" +
