@@ -85,20 +85,25 @@
                             tri_cccarepathid: { 'value': selectedCarePathId },
                             tri_name: { "value": selectedCarePath }
                         };
-                        alert(selectedCarePathId);
-                        alert(selectedCarePath);
-;                        var contact = {};
-                        contact.tri_careplantoaddid = { Id: selectedCarePathId, LogicalName: "tri_cccarepath", tri_name : selectedCarePath };
-                        
+
+                      
+
+                        var contact = {};
+                        var contactId = parent.Xrm.Page.data.entity.getId();
+                       // contact.tri_careplantoaddid = { Id: selectedCarePathId, LogicalName: "tri_cccarepath", Name: selectedCarePath };
+                        contact.tri_CarePlantoAddID = { Id: selectedCarePathId, LogicalName: "tri_cccarepath", Name: selectedCarePath };
                         SDK.REST.updateRecord(
-                            selectedCarePathId,
+                            contactId, // Pass Contact ID
                             contact,
-                            "contact",
+                            "Contact",
                             updateSuccessCallback,
                             errorHandler); //    
 
                         function updateSuccessCallback() {
                             alert("The Patient record changes were saved");
+                            alert(carePathdataToUpdate);
+                            alert(selectedCarePathId);
+                            debugger;
                             $('#carePlans').append('<div style="">' +
                                                 '<span>' + selectedCarePath + '</span>' +
                                                 '<a id="' + selectedCarePath + '" href="\\#">+</a>' +
