@@ -57,17 +57,34 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Demo\MonitorModeHTMLCSS\images\calendar.png" />
+    <Content Include="Demo\MonitorModeHTMLCSS\monitomode.html" />
+    <Content Include="Demo\MonitorModeHTMLCSS\monitormode-style.css" />
+    <Content Include="Demo\PersonalizeHTMLCSS\css\bootstrap.css" />
+    <Content Include="Demo\PersonalizeHTMLCSS\css\personalize-style.css" />
+    <Content Include="Demo\PersonalizeHTMLCSS\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Demo\PersonalizeHTMLCSS\images\calendar.png" />
+    <Content Include="Demo\PersonalizeHTMLCSS\js\bootstrap.js" />
+    <Content Include="Demo\PersonalizeHTMLCSS\js\jquery-1.11.3.min.js" />
+    <Content Include="Demo\PersonalizeHTMLCSS\personalize.html" />
     <Content Include="MonitorModev2_files\u456" />
     <Content Include="tri_css\kendo.common.min.css" />
     <Content Include="tri_css\kendo.default.min.css" />
+    <Content Include="tri_html\AddNewCarePlan.html" />
+    <Content Include="tri_html\AddNewCarePlanlocal.html" />
     <Content Include="tri_html\StierSolutionlocal.html" />
+    <Content Include="tri_scripts\AddNewCarePlan.js" />
     <Content Include="tri_scripts\CarePlanMonData.js" />
     <Content Include="tri_scripts\kendo.all.min.js" />
     <Content Include="tri_scripts\kendo.js" />
-    <Content Include="tri_scripts\linq - Copy.js" />
     <Content Include="tri_scripts\linq.js" />
     <Content Include="tri_scripts\linq.min.js" />
     <Content Include="_imgs\imagestrips\transparent_spacer.png" />
+    <Content Include="Demo\PersonalizeHTMLCSS\.DS_Store" />
+    <Content Include="Demo\PersonalizeHTMLCSS\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Demo\PersonalizeHTMLCSS\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Demo\PersonalizeHTMLCSS\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Demo\PersonalizeHTMLCSS\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,7 +178,6 @@
     <Content Include="MonitorModev2_files\visibility.js" />
     <Content Include="tri_css\CarePlanMonitor.css" />
     <Content Include="tri_css\jquery_ui_192.custom.css" />
-    <Content Include="tri_html\AddNewCarePlan.html" />
     <Content Include="tri_html\CarePlanMon.html" />
     <Content Include="tri_html\SimpleTreePatient.html" />
     <Content Include="tri_html\StierSolution.html" />

@@ -25,31 +25,33 @@
     <script src="../tri_scripts/linq.min.js"></script>
     <script src="../tri_scripts/linq.js"></script>
     <script src="../tri_scripts/PatientMonitorMode.js"></script>
+    <script src="../tri_scripts/AddNewCarePlan.js"></script>
     <script>
         $(document).ready(function () {
             debugger;
-            //if(1==1){
-            //var newPlans = CarePathData;
-            if (parent.Xrm !== undefined) {
-                var newPlans = GetAllCarePath();
+            if (1 == 1) {
+                var islocal = true;
+                var newPlans = CarePathData;
+                //if (parent.Xrm !== undefined) {
+                //    var newPlans = GetAllCarePath();
 
-               // var AddNewCarePlanTemplateData = {};
+                // var AddNewCarePlanTemplateData = {};
 
-                // Create DD 
+                // Create DD
                 var data = Enumerable.From(newPlans)
-                .Select(function (x) { return { 'text' : x.attributes.tri_name.value , 'value' : x.attributes.tri_cccarepathid.value}; })
+                .Select(function (x) { return { 'text': x.attributes.tri_name.value, 'value': x.attributes.tri_cccarepathid.value }; })
                 .ToArray();
 
                 // create DropDownList from input HTML element
-                    var kendoAutoCompleteWC =  $("#carePaths").kendoAutoComplete({
-                                                                dataTextField: "text",
-                                                                dataValueField: "value",
-                                                                filter: "startswith",
-                                                                placeholder: "Viewing All (Select Category)",
-                                                                dataSource: data,
-                                                                index: 0,
-                                                                change: onChange
-                    }                                           ).data("kendoAutoComplete");;
+                var kendoAutoCompleteWC = $("#carePaths").kendoAutoComplete({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    filter: "startswith",
+                    placeholder: "Viewing All (Select Category)",
+                    dataSource: data,
+                    index: 0,
+                    change: onChange
+                }).data("kendoAutoComplete");;
 
                 function onChange() {
                     var selectedCarePath = $('#carePaths').val();
@@ -61,11 +63,11 @@
                                              .FirstOrDefault();
 
                     var IsSelectedCarePathfromDataSource = listCarePath
-                                                           .Select(function (x) { return x.text;})
+                                                           .Select(function (x) { return x.text; })
                                                            .Contains(selectedCarePath);
 
                     if (selectedCarePath !== '' && IsSelectedCarePathfromDataSource) {
-                        
+
                         //AddNewCarePlanTemplateData = Enumerable.From(data)
                         //                             // data = Enumerable.From(newPlans)
                         //                             .Where(function (x) { return x.text !== selectedCarePath; })
@@ -85,31 +87,31 @@
                             tri_cccarepathid: { 'value': selectedCarePathId },
                             tri_name: { "value": selectedCarePath }
                         };
-                        alert(selectedCarePathId);
-                        alert(selectedCarePath);
-;                        var contact = {};
-                        contact.tri_careplantoaddid = { Id: selectedCarePathId, LogicalName: "tri_cccarepath", tri_name : selectedCarePath };
-                        
-                        SDK.REST.updateRecord(
-                            selectedCarePathId,
-                            contact,
-                            "contact",
-                            updateSuccessCallback,
-                            errorHandler); //    
 
-                        function updateSuccessCallback() {
+                       
+
+                        if (!islocal) {
+                            var contact = {};
+                            contact.tri_careplantoaddid = { Id: selectedCarePathId, LogicalName: "tri_cccarepath", Name: selectedCarePath };
+                            SDK.REST.updateRecord(selectedCarePathId, contact, "Contact", updateSuccessCallback, errorHandler);
                             alert("The Patient record changes were saved");
-                            $('#carePlans').append('<div style="">' +
-                                                '<span>' + selectedCarePath + '</span>' +
-                                                '<a id="' + selectedCarePath + '" href="\\#">+</a>' +
-                                                '</div>');
+                        }
+                        else {
+                            function updateSuccessCallback() {
+                                $('#carePlans').append('<div style="">' +
+                                                    '<span>' + selectedCarePath + '</span>' +
+                                                    '<a id="' + selectedCarePath + '" href="\\#">+</a>' +
+                                                    '</div>');
 
-                            data = Enumerable.From(data)
-                                          .Where(function (x) { return x.text !== selectedCarePath; })
-                                          .ToArray();
-                            // Bind new data to KendAutocomplete
-                            kendoAutoCompleteWC.setDataSource(data);
-                            $('#carePaths').val('');
+                                data = Enumerable.From(data)
+                                              .Where(function (x) { return x.text !== selectedCarePath; })
+                                              .ToArray();
+                                // Bind new data to KendAutocomplete
+                                kendoAutoCompleteWC.setDataSource(data);
+                                $('#carePaths').val('');
+                            }
+
+                            updateSuccessCallback();
                         }
 
                         function errorHandler(error) {
@@ -142,18 +144,18 @@
         </div>
         <div class="carePlans" id="carePlans" style="margin-top:15px;z-index:-10">
             <!--<script id="AddNewCarePlanTemplate" type="text/x-kendo-template">
-        # if(data != ""){  #
-        <div style="">
-            <span>#= data.attributes.tri_name.value #</span>
-            <a id="#= data.attributes.tri_cccarepathid.value #" href="\\#">+</a>
-        </div>
-        #
-        }
-        #
-    </script>-->
+                # if(data != ""){  #
+                <div style="">
+                    <span>#= data.attributes.tri_name.value #</span>
+                    <a id="#= data.attributes.tri_cccarepathid.value #" href="\\#">+</a>
+                </div>
+                #
+                }
+                #
+            </script>-->
 
         </div>
     </div>
-    
+
 </body>
 </html>

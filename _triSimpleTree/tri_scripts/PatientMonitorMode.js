@@ -43,7 +43,7 @@ function GetPlanNodefornewUI(PatientId) {
     return retrievedPlanRecords;
 }
 
-function GetAllCarePlan() {
+function GetAllCarePath() {
 
     var FetchXmlplan =
         "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>" +
@@ -52,11 +52,28 @@ function GetAllCarePlan() {
             "<attribute name='tri_name' />" +
             "<attribute name='createdon' />" +
             "<order attribute='tri_name' descending='false' />" +
-            //"<filter type='and'>" +
-            //"<condition attribute='tri_patientid' operator='eq' value='" + PatientId + "' />" +
-            //"</filter>" +
-          "</entity>"
+          "</entity>"+
         "</fetch>";
+    // alert(FetchXmlplan);
+    retrievedPlanRecords = XrmServiceToolkit.Soap.Fetch(FetchXmlplan);
+
+    return retrievedPlanRecords;
+}
+
+function GetCarePathFromId(CarePathId) {
+
+    var FetchXmlplan =
+        "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>" +
+          "<entity name='tri_cccarepath'>" +
+            "<attribute name='tri_cccarepathid' />" +
+            "<attribute name='tri_name' />" +
+            "<attribute name='createdon' />" +
+            "<order attribute='tri_name' descending='false' />" +
+                "<filter type='and'>" +
+                  "<condition attribute='statecode' operator='eq' value='" + CarePathId + "' />" +
+                "</filter>" +
+          "</entity>"+
+    "</fetch>";
     // alert(FetchXmlplan);
     retrievedPlanRecords = XrmServiceToolkit.Soap.Fetch(FetchXmlplan);
 
