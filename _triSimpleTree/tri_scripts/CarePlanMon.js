@@ -37,69 +37,74 @@ function opendialog(page) {
     $dialog.dialog('open');
 }
 
+function OpenPersonalizeWindow() {
+    var myWindow = $("#window");
+    myWindow.data("kendoWindow").open();
+}
+
 function openTypeDetailsDescription(ele)
 {
 
 }
 
 function openTab(listele, symptomName, color, Isfirstload) {
-    var i;
-    var x = document.getElementsByClassName("symptoms");
-    var ele = document.getElementById(symptomName);
+    //var i;
+    //var x = document.getElementsByClassName("symptoms");
+    //var ele = document.getElementById(symptomName);
 
-    if (symptomName === "All") {
-        if (Isfirstload) {
-            $(x).hide();
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            $(listele)[0].style.fontSize = "18px";
-        }
-        else if ($(listele)[0].innerText === "All (4)" && $(ele).is(":visible")){ //ele.style.display === "block") {
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            $(listele)[0].innerText = "+";
-            //ele.style.display = "none";
-            $(ele).hide(1000);
-            $(ele).css("visibility", "hidden");
-            $(listele)[0].style.fontSize = "18px";
-        }
-        else if ($(listele)[0].innerText === "All (4)" && !$(ele).is(":visible")) { //ele.style.display === "none") {
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            //ele.style.display = "block";
-            $(ele).show(500);
-            $(ele).css("visibility", "visible");
-            $(listele)[0].style.fontSize = "10px";
-        }
-        else if ($(listele)[0].innerText === "+" && !$(ele).is(":visible") ){ // ele.style.display === "none") {
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            //ele.style.display = "block";
-            $(ele).show(500);
-            $(ele).css("visibility", "visible");
-            $(listele)[0].innerText = "All (4)";
-            $(listele)[0].style.fontSize = "10px";
+    //if (symptomName === "All") {
+    //    if (Isfirstload) {
+    //        $(x).hide();
+    //        for (i = 0; i < x.length; i++) {
+    //            x[i].style.display = "none";
+    //        }
+    //        $(listele)[0].style.fontSize = "18px";
+    //    }
+    //    else if ($(listele)[0].innerText === "All (4)" && $(ele).is(":visible")){ //ele.style.display === "block") {
+    //        for (i = 0; i < x.length; i++) {
+    //            x[i].style.display = "none";
+    //        }
+    //        $(listele)[0].innerText = "+";
+    //        //ele.style.display = "none";
+    //        $(ele).hide(1000);
+    //        $(ele).css("visibility", "hidden");
+    //        $(listele)[0].style.fontSize = "18px";
+    //    }
+    //    else if ($(listele)[0].innerText === "All (4)" && !$(ele).is(":visible")) { //ele.style.display === "none") {
+    //        for (i = 0; i < x.length; i++) {
+    //            x[i].style.display = "none";
+    //        }
+    //        //ele.style.display = "block";
+    //        $(ele).show(500);
+    //        $(ele).css("visibility", "visible");
+    //        $(listele)[0].style.fontSize = "10px";
+    //    }
+    //    else if ($(listele)[0].innerText === "+" && !$(ele).is(":visible") ){ // ele.style.display === "none") {
+    //        for (i = 0; i < x.length; i++) {
+    //            x[i].style.display = "none";
+    //        }
+    //        //ele.style.display = "block";
+    //        $(ele).show(500);
+    //        $(ele).css("visibility", "visible");
+    //        $(listele)[0].innerText = "All (4)";
+    //        $(listele)[0].style.fontSize = "10px";
 
-        }
-    }
-    else {
-        if (!$(ele).is(":visible")) {
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            $('#detailsList li a')[0].innerText = "All (4)";
-            $('#detailsList li a')[0].style.fontSize = "10px";
-            $(ele).show(500);
-            $(ele).css("visibility", "visible");
-        }
-    }
+    //    }
+    //}
+    //else {
+    //    if (!$(ele).is(":visible")) {
+    //        for (i = 0; i < x.length; i++) {
+    //            x[i].style.display = "none";
+    //        }
+    //        $('#detailsList li a')[0].innerText = "All (4)";
+    //        $('#detailsList li a')[0].style.fontSize = "10px";
+    //        $(ele).show(500);
+    //        $(ele).css("visibility", "visible");
+    //    }
+    //}
 
-    document.getElementById("detailsList").style.borderBottom = "thick solid " + color;
-    $('#detailsList li:last-child').css({ color: color, fontSize: "20px" });
+    //document.getElementById("detailsList").style.borderBottom = "thick solid " + color;
+    //$('#detailsList li:last-child').css({ color: color, fontSize: "20px" });
 }
 
 

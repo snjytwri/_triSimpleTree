@@ -10,7 +10,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
     <script src="../tri_scripts/jquery_1_12_1min.js"></script>
-    <!--<script src="../tri_scripts/CarePlanMon.js"></script>-->
+    <script src="../tri_scripts/CarePlanMon.js"></script>
     <script src="../tri_scripts/jquery_ui_192.custom.js"></script>
     <script src="../tri_scripts/kendo.js"></script>
     <script src="../tri_scripts/kendo.all.min.js"></script>
@@ -28,7 +28,6 @@
     <script src="../tri_scripts/AddNewCarePlan.js"></script>
     <script>
         $(document).ready(function () {
-            debugger;
             if (1 == 1) {
                 var islocal = true;
                 var newPlans = CarePathData;
@@ -100,7 +99,7 @@
                             function updateSuccessCallback() {
                                 $('#carePlans').append('<div style="">' +
                                                     '<span>' + selectedCarePath + '</span>' +
-                                                    '<a id="' + selectedCarePath + '" href="\\#">+</a>' +
+                                                    '<a onclick="javascript: OpenPersonalizeWindow(); return false;" id="' + selectedCarePath + '" href="">+</a>' +
                                                     '</div>');
 
                                 data = Enumerable.From(data)
@@ -119,6 +118,18 @@
                         }
                     }
                 };
+
+                $("#window").kendoWindow({
+                    width: "70%",
+                    height: "50%",
+                    //title: "Personalize View",
+                    visible: false,
+                    modal: true,
+                    content: "personalizepopup.html",
+                    actions: [
+                        "Close"
+                    ]
+                }).data("kendoWindow").center().open();
             }
         });
 
@@ -153,9 +164,10 @@
                 }
                 #
             </script>-->
-
+        </div>
+        <div id="window" style="display: none; padding:30px;margin-left:5%;">
         </div>
     </div>
-
 </body>
 </html>
+

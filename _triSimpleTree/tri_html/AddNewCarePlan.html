@@ -100,10 +100,13 @@
                             errorHandler); //    
 
                         function updateSuccessCallback() {
-                            alert("The Patient record changes were saved");
-                            alert(carePathdataToUpdate);
-                            alert(selectedCarePathId);
                             debugger;
+                            alert("The Patient record changes were saved");
+
+                            var carePlanData = GetCarePlanfromPatitentIdandCarePlanName(contactId, selectedCarePath);
+
+                           // $('#updateCarePlan').append(JSON.stringify(carePlanData));
+
                             $('#carePlans').append('<div style="">' +
                                                 '<span>' + selectedCarePath + '</span>' +
                                                 '<a id="' + selectedCarePath + '" href="\\#">+</a>' +
