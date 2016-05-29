@@ -111,38 +111,26 @@
                                                     <tr>
                                                         <td class="labelcenter" style="width:90px; padding-right:20px;">
                                                             <!-- FACTOR DROP-DOWN -->
-                                                            <div class="dropdown">
-                                                                <div class="btn-group" style="width: 60px;">
+                                                                <div class="dropdown" style="width: 60px;">
                                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                         Most Patients <span class="caret"></span></button>
                                                                     <ul class="dropdown-menu">
-                                                                        <li role="presentation" class="dropdown-header" value="100000000">Most Patients</li>
-                                                                        <li role="presentation" class="dropdown-header" value="100000001">Elderly Frail</li>
-                                                                        <li role="presentation" class="dropdown-header" value="100000002">Comorbid</li>
-                                                                        <li role="presentation" class="dropdown-header" value="100000003">Stage 2-3</li>
-                                                                        <li role="presentation" class="dropdown-header" value="100000004">All</li>
-                                                                        <li role="presentation" class="dropdown-header" value="100000005">Normal</li>
-                                                                        <li role="presentation" class="dropdown-header" value="100000006">Abnormal</li>
+                                                                        <li><a href="\\#" data-value="100000000">Most Patients</a></li>
+                                                                        <li><a href="\\#" data-value="100000001">Elderly Frail</a></li>
+                                                                        <li><a href="\\#" data-value="100000002">Comorbid</a></li>
+                                                                        <li><a href="\\#" data-value="100000003">Stage 2-3</a></li>
+                                                                        <li><a href="\\#" data-value="100000004">Allk</a></li>
+                                                                        <li><a href="\\#" data-value="100000005">Normal</a></li>
+                                                                        <li><a href="\\#" data-value="100000006">Abnormal</a></li>
                                                                     </ul>
                                                                 </div>
-                                                                </div>
-                                                                <!--<script>
-
-                                                                    $(".dropdown-menu li a").click(function () {
-                                                                        $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-                                                                        $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
-                                                                    });
-
-                                                                </script>-->
-</td>
+                                                        </td>
                                                         <td class="labelcenter" width="200px">
-
                                                             <table align="center">
                                                                 <tr>
                                                                     <td>
-
                                                                         <!-- MODIFIER DROP-DOWN -->
-                                                                        <div class="btn-group">
+                                                                        <div class="dropdown">
                                                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                                 &lt; &nbsp; &nbsp;<span class="caret">
                                                                                     #
@@ -153,11 +141,11 @@
                                                                                 </span>
                                                                             </button>
                                                                             <ul class="dropdown-menu">
-                                                                                <li role="presentation" value="167410000" class="dropdown-header">></li>
-                                                                                <li role="presentation" value="167410002" class="dropdown-header">=</li>
-                                                                                <li role="presentation" value="167410001" class="dropdown-header"><</li>
-                                                                                <li role="presentation" value="167410003" class="dropdown-header">% Decrease</li>
-                                                                                <li role="presentation" value="167410004" class="dropdown-header">% Increase</li>
+                                                                                <li><a href="\\#" data-value="167410000">></a></li>
+                                                                                <li><a href="\\#" data-value="167410002">=</a></li>
+                                                                                <li><a href="\\#" data-value="167410001"><</a></li>
+                                                                                <li><a href="\\#" data-value="167410003">% Decrease</a></li>
+                                                                                <li><a href="\\#" data-value="167410004">% Increase</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </td>
@@ -167,7 +155,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <!-- TYPE DROP-DOWN -->
-                                                                        <div class="btn-group">
+                                                                        <div class="dropdown">
                                                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                                 item1 <span class="caret"></span>
                                                                             </button>
@@ -319,6 +307,12 @@
             });
             dataSource.read();
         }
+
+        /// Drop down Selection
+        $(".dropdown-menu li a").click(function () {
+            $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+            $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+        });
 
     });
 
