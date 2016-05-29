@@ -160,8 +160,8 @@
                                                                                 item1 <span class="caret"></span>
                                                                             </button>
                                                                             <ul class="dropdown-menu">
-                                                                                <li role="presentation" class="dropdown-header">mg</li>
-                                                                                <li role="presentation" class="dropdown-header">item2</li>
+                                                                                <li><a href="\\#" data-value="167410003">mg</a></li>
+                                                                                <li><a href="\\#" data-value="167410004">item 2</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </td>
@@ -171,26 +171,26 @@
                                                         <td class="labelcenter" width="120px" style="padding-right:30px;">
                                                             <input type="text" class="txtfield" style="width:30px;">
                                                             <!-- MODIFIER DROP-DOWN -->
-                                                            <div class="btn-group" style="width:60px;">
+                                                            <div class="dropdown" style="width: 60px; float: right;">
                                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
-                                                                    <li role="presentation" class="dropdown-header">months</li>
-                                                                    <li role="presentation" class="dropdown-header">days</li>
-                                                                    <li role="presentation" class="dropdown-header">weeks</li>
-                                                                    <li role="presentation" class="dropdown-header">years</li>
+                                                                    <li><a href="\\#" data-value="months">months</a></li>
+                                                                    <li><a href="\\#" data-value="days">days</a></li>
+                                                                    <li><a href="\\#" data-value="weeks">weeks</a></li>
+                                                                    <li><a href="\\#" data-value="years">years</a></li>
                                                                 </ul>
                                                             </div>
                                                         </td>
                                                         <td class="labelcenter" width="120px" style="padding-right:30px;">
                                                             <input type="text" class="txtfield" style="width:30px;">
                                                             <!-- MODIFIER DROP-DOWN -->
-                                                            <div class="btn-group" style="width:60px;">
+                                                            <div class="dropdown" style="width:60px;float:right;">
                                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
-                                                                    <li role="presentation" class="dropdown-header">months</li>
-                                                                    <li role="presentation" class="dropdown-header">days</li>
-                                                                    <li role="presentation" class="dropdown-header">weeks</li>
-                                                                    <li role="presentation" class="dropdown-header">years</li>
+                                                                    <li><a href="\\#" data-value="months">months</a></li>
+                                                                    <li><a href="\\#" data-value="days">days</a></li>
+                                                                    <li><a href="\\#" data-value="weeks">weeks</a></li>
+                                                                    <li><a href="\\#" data-value="years">years</a></li>
                                                                 </ul>
                                                             </div>
                                                             <br>
@@ -217,16 +217,16 @@
                                                         </td>
                                                         <td class="label-name" style="width:150px; text-align:left;">
                                                             <!-- ASSIGNMENT ROLE DROP-DOWN -->
-                                                            <div class="btn-group" style="width: 120px;">
+                                                            <div class="dropdown" style="width: 120px;">
                                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Care Navigator <span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
-                                                                    <li role="presentation" class="dropdown-header" value="167410000 selected">Care Manager</li>
-                                                                    <li role="presentation" class="dropdown-header" value="167410001">Nurse</li>
-                                                                    <li role="presentation" class="dropdown-header" value="167410002">Dietician</li>
-                                                                    <li role="presentation" class="dropdown-header" value="167410003">Care Navigator</li>
-                                                                    <li role="presentation" class="dropdown-header" value="100000000">Physiatrist</li>
-                                                                    <li role="presentation" class="dropdown-header" value="100000001">Cardiologist</li>
-                                                                    <li role="presentation" class="dropdown-header" value="100000002">Physician</li>
+                                                                    <li><a href="\\#" data-value="167410000">Care Manager</a></li>
+                                                                    <li><a href="\\#" data-value="167410001">Nurse</a></li>
+                                                                    <li><a href="\\#" data-value="167410002">Dietician</a></li>
+                                                                    <li><a href="\\#" data-value="167410003">Care Navigator</a></li>
+                                                                    <li><a href="\\#" data-value="167410003">Physiatrist</a></li>
+                                                                    <li><a href="\\#" data-value="167410003">Cardiologist</a></li>
+                                                                    <li><a href="\\#" data-value="167410003">Physician</a></li>
                                                                 </ul>
                                                             </div>
                                                         </td>
@@ -283,7 +283,7 @@
         debugger;
         params = getParams();
         var CarePathId = unescape(params["CarePathId"]);
-        alert(CarePathId);
+       // alert(CarePathId);
 
         if (1 === 1 && CarePathId !== undefined) {
             debugger;
