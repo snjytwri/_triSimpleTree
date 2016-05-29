@@ -111,15 +111,15 @@
                                                     <tr>
                                                         <td class="labelcenter" style="width:90px; padding-right:20px;">
                                                             <!-- FACTOR DROP-DOWN -->
-                                                                <div class="dropdown" style="width: 60px;">
+                                                                <div id="#= data.id#_ddFactorModifier" class="dropdown" style="width: 60px;">
                                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        Most Patients <span class="caret"></span></button>
+                                                                        #= data.attributes.tri_patientfactor.formattedValue # <span class="caret"></span></button>
                                                                     <ul class="dropdown-menu">
                                                                         <li><a href="\\#" data-value="100000000">Most Patients</a></li>
                                                                         <li><a href="\\#" data-value="100000001">Elderly Frail</a></li>
                                                                         <li><a href="\\#" data-value="100000002">Comorbid</a></li>
                                                                         <li><a href="\\#" data-value="100000003">Stage 2-3</a></li>
-                                                                        <li><a href="\\#" data-value="100000004">Allk</a></li>
+                                                                        <li><a href="\\#" data-value="100000004">All</a></li>
                                                                         <li><a href="\\#" data-value="100000005">Normal</a></li>
                                                                         <li><a href="\\#" data-value="100000006">Abnormal</a></li>
                                                                     </ul>
@@ -130,12 +130,13 @@
                                                                 <tr>
                                                                     <td>
                                                                         <!-- MODIFIER DROP-DOWN -->
-                                                                        <div class="dropdown">
+                                                                        <div class="dropdown" id="#= data.id#_ddTargetValue">
                                                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                                 &lt; &nbsp; &nbsp;<span class="caret">
                                                                                     #
                                                                                     if(data.attributes.tri_targetmetricoperator !== undefined)
-                                                                                    { htmlDecode(data.attributes.tri_targetmetricoperator.formattedValue); }
+                                                                                       { data.attributes.tri_targetmetricoperator.formattedValue; }
+                                                                                  //  { htmlDecode(data.attributes.tri_targetmetricoperator.formattedValue); }
 
                                                                                     #
                                                                                 </span>
@@ -150,8 +151,11 @@
                                                                         </div>
                                                                     </td>
                                                                     <td>
-                                                                        <input type="text" class="txtfield" value="# if(data.attributes.tri_targetmetricoperator !== undefined)
-                                                                                             { data.attributes.tri_targetmetricoperator.formattedValue; } #">
+                                                                        # if(data.attributes.tri_metric !== undefined){#
+                                                                        <input type="text" class="txtfield" value="#= data.attributes.tri_metric.formattedValue #">
+                                                                        #} else {#
+                                                                        <input type="text" class="txtfield" value="">
+                                                                        #}#
                                                                     </td>
                                                                     <td>
                                                                         <!-- TYPE DROP-DOWN -->
@@ -171,7 +175,7 @@
                                                         <td class="labelcenter" width="120px" style="padding-right:30px;">
                                                             <input type="text" class="txtfield" style="width:30px;">
                                                             <!-- MODIFIER DROP-DOWN -->
-                                                            <div class="dropdown" style="width: 60px; float: right;">
+                                                            <div class="dropdown" style="width: 60px; float: right;" id="#= data.id#_ddInRangeFeq">
                                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a href="\\#" data-value="months">months</a></li>
@@ -184,7 +188,7 @@
                                                         <td class="labelcenter" width="120px" style="padding-right:30px;">
                                                             <input type="text" class="txtfield" style="width:30px;">
                                                             <!-- MODIFIER DROP-DOWN -->
-                                                            <div class="dropdown" style="width:60px;float:right;">
+                                                            <div class="dropdown" style="width:60px;float:right;" id="#= data.id#_ddOutRangeFeq">
                                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a href="\\#" data-value="months">months</a></li>
@@ -217,9 +221,11 @@
                                                         </td>
                                                         <td class="label-name" style="width:150px; text-align:left;">
                                                             <!-- ASSIGNMENT ROLE DROP-DOWN -->
-                                                            <div class="dropdown" style="width: 120px;">
-                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Care Navigator <span class="caret"></span></button>
+                                                            <div class="dropdown" style="width: 120px;" id="#= data.id#_ddAssignmentRole">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                #= data.attributes.tri_activityassignmentrole.formattedValue # <span class="caret"></span></button>
                                                                 <ul class="dropdown-menu">
+                                                                    <li><a href="\\#" data-value="-1"></a></li>
                                                                     <li><a href="\\#" data-value="167410000">Care Manager</a></li>
                                                                     <li><a href="\\#" data-value="167410001">Nurse</a></li>
                                                                     <li><a href="\\#" data-value="167410002">Dietician</a></li>

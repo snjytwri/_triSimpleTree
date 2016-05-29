@@ -20,7 +20,7 @@ var CarePlanData = [
         },
         "tri_targetmetricoperator": {
             "value": 167410001,
-            "formattedValue": "<",
+            "formattedValue": ">",
             "type": "OptionSetValue"
         },
         "tri_actiontriggervalue": {
@@ -118,7 +118,7 @@ var CarePlanData = [
         },
         "tri_targetmetricoperator": {
             "value": 167410001,
-            "formattedValue": "<",
+            "formattedValue": "=",
             "type": "OptionSetValue"
         },
         "tri_actiontriggervalue": {
