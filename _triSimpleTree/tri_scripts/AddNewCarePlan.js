@@ -1092,7 +1092,7 @@ var CarePlanData = [
         },
         "new_goalstate": {
             "value": 167410000,
-            "formattedValue": "Open",
+            "formattedValue": "Scheduled",
             "type": "OptionSetValue"
         },
         "tri_vitalvaluetypename": {
@@ -1176,7 +1176,7 @@ var CarePlanData = [
         },
         "new_goalstate": {
             "value": 167410000,
-            "formattedValue": "Open",
+            "formattedValue": "Met",
             "type": "OptionSetValue"
         },
         "tri_vitalvaluetypename": {
@@ -1364,7 +1364,7 @@ var CarePlanData = [
         },
         "new_goalstate": {
             "value": 167410000,
-            "formattedValue": "Open",
+            "formattedValue": "Scheduled",
             "type": "OptionSetValue"
         },
         "tri_vitalvaluetypename": {
@@ -1447,7 +1447,7 @@ var CarePlanData = [
         },
         "new_goalstate": {
             "value": 167410000,
-            "formattedValue": "Open",
+            "formattedValue": "Not Met",
             "type": "OptionSetValue"
         },
         "tri_measuredetails": {
@@ -1534,7 +1534,7 @@ var CarePlanData = [
         },
         "new_goalstate": {
             "value": 167410000,
-            "formattedValue": "Open",
+            "formattedValue": "Not Met",
             "type": "OptionSetValue"
         },
         "tri_measuredetails": {
@@ -1617,7 +1617,7 @@ var CarePlanData = [
         },
         "new_goalstate": {
             "value": 167410000,
-            "formattedValue": "Open",
+            "formattedValue": "Not Met",
             "type": "OptionSetValue"
         },
         "tri_vitalvaluetypename": {

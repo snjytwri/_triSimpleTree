@@ -1,230 +1,323 @@
 ﻿<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personalize HTML / CSS</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalize HTML / CSS</title>
     <!--<link href="css/personalize-style.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">-->
 
     <link href="../tri_css/bootstrap.css" rel="stylesheet" />
     <link href="../tri_css/personalize-style.css" rel="stylesheet" />
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link href="../tri_css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../tri_css/kendo.common.min.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-
 <body>
-<div class="main-wrapper">
-<div class="window-wrapper">
+    <div class="main-wrapper" style="width: 60%;">
+        <div class="window-wrapper">
+            <!-- X-CLOSE -->
+            <div style="width:100%; padding-left:660px; padding-top:20px;">
+                <div class="x-close">X</div>
+            </div>
+            <!-- FLAG + Title -->
+            <div class="personalizeCarePlans"></div>
+            <script id="PersonalizeCarePlanTemplate" type="text/x-kendo-template">
+                <div class="indicator-wrapper" style="padding:20px;margin-top:20px;display:inline;">
 
-<!-- X-CLOSE -->  
-<div style="width:100%; padding-left:660px; padding-top:20px;">
-<div class="x-close">X</div></div>
+                    <!--<div class="flag-box-big green" style=""></div>-->
+                    # if(data.attributes.new_goalstate.formattedValue === "Open") { #
+                    <div class="flag-box-big orange" style="">
+                        # } else if(data.attributes.new_goalstate.formattedValue === "Met") { #
+                        <div class="flag-box-big green" style="">
+                            # } else if(data.attributes.new_goalstate.formattedValue === "Not Met") { #
+                            <div class="flag-box-big red" style="">
+                                # } else if(data.attributes.new_goalstate.formattedValue === "Scheduled") { #
+                                <div class="flag-box-big grey" style="">
+                                    # } #
+                                    SET<br>
+                                    FLAG
+                                </div>
 
-<!-- FLAG + Title -->    
+                                <div class="sectiontitle" style="">#= data.attributes.tri_goalname.value #</div>
+                                <!--<div class="indicator-line green"></div>-->
+                                # if(data.attributes.new_goalstate.formattedValue === "Open") { #
+                                <div class="indicator-line orange" style="">
+                                    # } else if(data.attributes.new_goalstate.formattedValue === "Met") { #
+                                    <div class="indicator-line green" style="">
+                                        # } else if(data.attributes.new_goalstate.formattedValue === "Not Met") { #
+                                        <div class="indicator-line red" style="">
+                                            # } else if(data.attributes.new_goalstate.formattedValue === "Scheduled") { #
+                                            <div class="indicator-line grey" style="">
+                                                # } #
+                                            </div>
+                                            <!-- Section Content -->
+                                            <!-- LAST RESULT -->
+                                            <div class="tablecontent">
+                                                <table class="maintable" align="center">
+                                                    <tr>
+                                                        <td class="label-name">
+                                                            Last Result:
+                                                        </td>
+                                                        # if(data.attributes.new_goalstate.formattedValue === "Open") { #
+                                                        <td class="result-1 orangetxt">
+                                                            # } else if(data.attributes.new_goalstate.formattedValue === "Met") { #
+                                                        <td class="result-1 greentxt">
+                                                            # } else if(data.attributes.new_goalstate.formattedValue === "Not Met") { #
+                                                        <td class="result-1 redtxt">
+                                                            # } else if(data.attributes.new_goalstate.formattedValue === "Scheduled") { #
+                                                        <td class="result-1 greytxt">
+                                                            # } #
+                                                            <!--<td class="result-1 greentxt">-->
+                                                            #= data.attributes.tri_goalname.value #
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <!-- RESULT SOURCE -->
+                                                <table class="maintable" align="center">
+                                                    <tr>
+                                                        <td class="label-name">Result Source:</td>
+                                                        <td class="result-1">#= data.attributes.tri_goalname.value #</td>
+                                                    </tr>
+                                                </table>
+                                                <!-- DATES -->
+                                                <table class="maintable" align="center">
+                                                    <tr>
+                                                        <td class="label-name"> Last Result Date:</td>
+                                                        <td class="result-1"> #= data.attributes.tri_goalname.value #</td>
+                                                        <td class="label-name"> Next Due Date:</td>
+                                                        <td class="result-1"> #= data.attributes.tri_goalname.value #<br></td>
+                                                    </tr>
+                                                </table>
+                                                <br><br>
+                                                <!-- FACTORS & VALUES -->
+                                                <table class="maintable" align="center">
+                                                    <tr>
+                                                        <td class="labelcenter" width="90px">Factor / Modifier:</td>
+                                                        <td class="labelcenter" width="200px"> Target Value:</td>
+                                                        <td class="labelcenter" width="120px"> In Range Frequency:</td>
+                                                        <td class="labelcenter" width="120px"> Out of Range Frequency:<br></td>
+                                                    </tr>
+                                                </table>
+                                                <table class="factors" align="center">
+                                                    <tr>
+                                                        <td class="labelcenter" style="width:90px; padding-right:20px;">
+                                                            <!-- FACTOR DROP-DOWN -->
+                                                            <div class="dropdown">
+                                                                <div class="btn-group" style="width: 60px;">
+                                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        Most Patients <span class="caret"></span></button>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li role="presentation" class="dropdown-header" value="100000000">Most Patients</li>
+                                                                        <li role="presentation" class="dropdown-header" value="100000001">Elderly Frail</li>
+                                                                        <li role="presentation" class="dropdown-header" value="100000002">Comorbid</li>
+                                                                        <li role="presentation" class="dropdown-header" value="100000003">Stage 2-3</li>
+                                                                        <li role="presentation" class="dropdown-header" value="100000004">All</li>
+                                                                        <li role="presentation" class="dropdown-header" value="100000005">Normal</li>
+                                                                        <li role="presentation" class="dropdown-header" value="100000006">Abnormal</li>
+                                                                    </ul>
+                                                                </div>
+                                                                </div>
+                                                                <!--<script>
 
-	<div class="indicator-wrapper">
-  
-    	<div class="flag-box-big red">SET<br>
-        FLAG</div>
-        <div class="sectiontitle">BMI Measurment</div>
+                                                                    $(".dropdown-menu li a").click(function () {
+                                                                        $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+                                                                        $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+                                                                    });
 
-  	<div class="indicator-line red">
+                                                                </script>-->
+</td>
+                                                        <td class="labelcenter" width="200px">
+
+                                                            <table align="center">
+                                                                <tr>
+                                                                    <td>
+
+                                                                        <!-- MODIFIER DROP-DOWN -->
+                                                                        <div class="btn-group">
+                                                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                &lt; &nbsp; &nbsp;<span class="caret">
+                                                                                    #
+                                                                                    if(data.attributes.tri_targetmetricoperator !== undefined)
+                                                                                    { htmlDecode(data.attributes.tri_targetmetricoperator.formattedValue); }
+
+                                                                                    #
+                                                                                </span>
+                                                                            </button>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li role="presentation" value="167410000" class="dropdown-header">></li>
+                                                                                <li role="presentation" value="167410002" class="dropdown-header">=</li>
+                                                                                <li role="presentation" value="167410001" class="dropdown-header"><</li>
+                                                                                <li role="presentation" value="167410003" class="dropdown-header">% Decrease</li>
+                                                                                <li role="presentation" value="167410004" class="dropdown-header">% Increase</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" class="txtfield" value="# if(data.attributes.tri_targetmetricoperator !== undefined)
+                                                                                             { data.attributes.tri_targetmetricoperator.formattedValue; } #">
+                                                                    </td>
+                                                                    <td>
+                                                                        <!-- TYPE DROP-DOWN -->
+                                                                        <div class="btn-group">
+                                                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                item1 <span class="caret"></span>
+                                                                            </button>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li role="presentation" class="dropdown-header">mg</li>
+                                                                                <li role="presentation" class="dropdown-header">item2</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td class="labelcenter" width="120px" style="padding-right:30px;">
+                                                            <input type="text" class="txtfield" style="width:30px;">
+                                                            <!-- MODIFIER DROP-DOWN -->
+                                                            <div class="btn-group" style="width:60px;">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li role="presentation" class="dropdown-header">months</li>
+                                                                    <li role="presentation" class="dropdown-header">days</li>
+                                                                    <li role="presentation" class="dropdown-header">weeks</li>
+                                                                    <li role="presentation" class="dropdown-header">years</li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                        <td class="labelcenter" width="120px" style="padding-right:30px;">
+                                                            <input type="text" class="txtfield" style="width:30px;">
+                                                            <!-- MODIFIER DROP-DOWN -->
+                                                            <div class="btn-group" style="width:60px;">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li role="presentation" class="dropdown-header">months</li>
+                                                                    <li role="presentation" class="dropdown-header">days</li>
+                                                                    <li role="presentation" class="dropdown-header">weeks</li>
+                                                                    <li role="presentation" class="dropdown-header">years</li>
+                                                                </ul>
+                                                            </div>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <!-- DESCRIPTION & ASSIGNMENT ROLE -->
+                                                <table class="maintable" align="center">
+                                                    <tr>
+                                                        <td class="label-name" style="width:500px">Trigger Description:</td>
+                                                        <td class="label-name" style="width:150px">Assignment Role:</td>
+                                                    </tr>
+                                                </table>
+
+                                                <table class="factors" align="center">
+                                                    <tr>
+                                                        <td style="width:450px; padding-left:10px; padding-right: 0px;">
+                                                            # if(data.attributes.tri_measuredetails !== undefined) { #
+                                                            <input type="text" class="txtfield" value="#= data.attributes.tri_measuredetails.value #" style="width:450px;text-align: left; padding-left: 10px;">
+                                                            #} else { #
+                                                            <input type="text" class="txtfield" value="" style="width:450px;text-align: left; padding-left: 10px;">
+                                                            # } #
+                                                        </td>
+                                                        <td class="label-name" style="width:150px; text-align:left;">
+                                                            <!-- ASSIGNMENT ROLE DROP-DOWN -->
+                                                            <div class="btn-group" style="width: 120px;">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Care Navigator <span class="caret"></span></button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li role="presentation" class="dropdown-header" value="167410000 selected">Care Manager</li>
+                                                                    <li role="presentation" class="dropdown-header" value="167410001">Nurse</li>
+                                                                    <li role="presentation" class="dropdown-header" value="167410002">Dietician</li>
+                                                                    <li role="presentation" class="dropdown-header" value="167410003">Care Navigator</li>
+                                                                    <li role="presentation" class="dropdown-header" value="100000000">Physiatrist</li>
+                                                                    <li role="presentation" class="dropdown-header" value="100000001">Cardiologist</li>
+                                                                    <li role="presentation" class="dropdown-header" value="100000002">Physician</li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+            </script>
+            <div class="center-wrapper" style="padding-left:200px;">
+                <div class="bluebtn">SAVE CHANGES</div>
+            </div>
+        </div>
+        <!--<script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.js"></script></div>-->
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+        <script src="../tri_scripts/jquery_1_12_1min.js"></script>
+        <script src="../tri_scripts/jquery_ui_192.custom.js"></script>
+
+        <script src="../tri_scripts/jquery-1.11.3.min.js"></script>
+        <script src="../tri_scripts/bootstrap.js"></script>
+
+        <script src="../tri_scripts/kendo.js"></script>
+        <script src="../tri_scripts/kendo.all.min.js"></script>
+        <script type="text/javascript" src="../tri_scripts/SDK.REST.js"></script>
+        <script src="../tri_scripts/json2.js" type="text/javascript"></script>
+        <script src="../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+        <script src="../tri_scripts/xrmservicetoolkit.js" type="text/javascript"></script>
+        <script src="../tri_scripts/linq.min.js"></script>
+        <script src="../tri_scripts/linq.js"></script>
+        <script src="../tri_scripts/PatientMonitorMode.js"></script>
+
+        <script src="../tri_scripts/CarePlanMon.js"></script>
+        <script src="../tri_scripts/AddNewCarePlan.js"></script>
     </div>
-
-
-  
-<!-- Section Content -->   
-
-
-   
-<!-- LAST RESULT -->       
-<div class="tablecontent">
-    <table class="maintable" align="center">
-    <tr>
-    	<td class="label-name">
-        Last Result:</td>
-        <td class="result-1 redtxt">Super Long Non-Numerical Result&nbsp;Super Long Non-Numerical Result&nbsp;Super Long Non-Numerical Result Super Long Non-Numerical Result Super Long Non-Numerical Result<br>
-          26<br></td>
-       
-     </tr></table>
-     
-     
-     
-     
- <!-- RESULT SOURCE -->     
-     <table class="maintable" align="center">
-     <tr>
-     <td class="label-name">Result Source:</td>
-        <td class="result-1">User</td></tr></table>
-        
- 
- 
- 
-        
- <!-- DATES -->     
-     <table class="maintable" align="center">
-    <tr>
-    	<td class="label-name" > Last Result Date:</td>
-        <td class="result-1"> 4/1/2016</td>
-        <td class="label-name"> Next Due Date:</td>
-        <td class="result-1"> 4/1/2016 (6 months)<br></td>
-     </tr></table>
-     
-     <br><br>
-
-
-
-
- <!-- FACTORS & VALUES -->     
-     <table class="maintable" align="center">
-    <tr>
-    	<td class="labelcenter" width="90px">Factor / Modifier:</td>
-        <td class="labelcenter" width="200px"> Target Value:</td>
-        <td class="labelcenter" width="120px"> In Range Frequency:</td>
-        <td class="labelcenter" width="120px"> Out of Range Frequency:<br></td>
-     </tr></table>
-     
-      <table class="factors" align="center">
-    <tr>
-    	<td class="labelcenter" style="width:90px; padding-right:20px;"> 
-        
-
-
-
-        
-<!-- FACTOR DROP-DOWN -->    
-        <div class="btn-group" style="width: 60px;">       
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">25-30 <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header">18-25</li>
-          <li role="presentation" class="dropdown-header">15-18</li>
-        </ul>
-      </div>
-
-      </td>
-        
-        
-        
-        <td class="labelcenter" width="200px"> 
-        
-<table align="center"><tr><td>
- 
-        <!-- MODIFIER DROP-DOWN -->    
-        <div class="btn-group">       
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&lt; &nbsp; &nbsp;<span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header">=</li>
-          <li role="presentation" class="dropdown-header">&gt;</li>
-        </ul>
-</td><td>
- <input type="text" class="txtfield">   </td>
-    
-    
-    
-    <td>
-    
-    <!-- TYPE DROP-DOWN --> 
-        <div class="btn-group">       
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">item1 <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header">mg</li>
-          <li role="presentation" class="dropdown-header">item2</li>
-        </ul>
-      </div> </td></tr></table>
- 
- </td>
-        <td class="labelcenter" width="120px" style="padding-right:30px;"> 
-        
-     <input type="text" class="txtfield" style="width:30px;">    
-       
-
-
-
-        <!-- MODIFIER DROP-DOWN -->    
-        <div class="btn-group" style="width:60px;">       
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header">days</li>
-          <li role="presentation" class="dropdown-header">weeks</li>
-          <li role="presentation" class="dropdown-header">years</li>
-        </ul>
-      </div>
-
-        </td>
-        <td class="labelcenter" width="120px" style="padding-right:30px;"> <input type="text" class="txtfield" style="width:30px;">    
-       
-       
-       
-       
-       
-        <!-- MODIFIER DROP-DOWN -->    
-        <div class="btn-group" style="width:60px;">       
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">months <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header">days</li>
-          <li role="presentation" class="dropdown-header">weeks</li>
-          <li role="presentation" class="dropdown-header">years</li>
-        </ul>
-      </div>
- <br></td>
-     </tr></table>
-
-<br>
- 
- 
- 
- 
- <!-- DESCRIPTION & ASSIGNMENT ROLE -->     
-     <table class="maintable" align="center">
-    <tr>
-    	<td class="label-name"  style="width:500px">Trigger Description:</td>
-        <td class="label-name"  style="width:150px">Assignment Role:</td>
-     </tr></table>
-     
- <table class="factors" align="center">
-    <tr>
-    
-    <td style="width:450px; padding-left:10px; padding-right: 0px;"><input type="text" class="txtfield" style="width:450px;text-align: left; padding-left: 10px;"></td>
-    	
-        
-        <td class="label-name" style="width:150px; text-align:left;"> 
-        
-        
-		
-        
-        
-        
-        <!-- ASSIGNMENT ROLE DROP-DOWN -->    
-        <div class="btn-group" style="width: 120px;">       
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Care Navigator <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header">Nurse</li>
-          <li role="presentation" class="dropdown-header">Item 3</li>
-        </ul>
-      </div>
-
-      </td>
-        
-     </tr></table>
-     
-     <br>
-     <div class="center-wrapper" style="padding-left:200px;">
-     
-     <div class="bluebtn">SAVE CHANGES</div>
-     
-     </div>
-     
-</div>    
-</div></div>
-<!--<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.js"></script></div>-->
-    <script src="../tri_scripts/bootstrap.js"></script>
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+
+        function getParams() {
+            var idx = document.URL.indexOf('?');
+            var params = new Array();
+            if (idx != -1) {
+                var pairs = document.URL.substring(idx + 1, document.URL.length).split('&');
+                for (var i = 0; i < pairs.length; i++) {
+                    nameVal = pairs[i].split('=');
+                    params[nameVal[0]] = nameVal[1];
+                }
+            }
+            return params;
+        }
+
+        params = getParams();
+        var CarePathId = unescape(params["CarePathId"]);
+        // alert(CarePathId);
+
+        if (1 == 1) {
+            debugger;
+            var islocal = true;
+            var newPlans = CarePlanData;
+            //if (parent.Xrm !== undefined) {
+            //    var newPlans = GetCarePlanfromPatitentIdandCarePlanName(contactId, selectedCarePath);
+            //    var contactId = parent.Xrm.Page.data.entity.getId();
+            //    var newPlans = GetCarePlanfromPatitentIdandCarePlanName(contactId, "KM DM");
+
+            //var PersonalizeCarePlanTemplateData = Enumerable.From(JSON.stringify(newPlans))
+            //                                            .ToArray();
+            // create a template using the above definition
+            var temp = $("#PersonalizeCarePlanTemplate").html();
+            var PersonalizeCarePlanTemplate = kendo.template(temp);
+            var dataSource = new kendo.data.DataSource({
+                data: newPlans,
+                change: function () { // subscribe to the CHANGE event of the data source
+                    $(".personalizeCarePlans").html(kendo.render(PersonalizeCarePlanTemplate, this.view()));
+                }
+            });
+            dataSource.read();
+        }
+
+    });
+
+</script>

@@ -41,6 +41,9 @@
                 .Select(function (x) { return { 'text': x.attributes.tri_name.value, 'value': x.attributes.tri_cccarepathid.value }; })
                 .ToArray();
 
+                var selectedCarePath;
+                var selectedCarePathId;
+
                 // create DropDownList from input HTML element
                 var kendoAutoCompleteWC = $("#carePaths").kendoAutoComplete({
                     dataTextField: "text",
@@ -53,10 +56,10 @@
                 }).data("kendoAutoComplete");;
 
                 function onChange() {
-                    var selectedCarePath = $('#carePaths').val();
+                    selectedCarePath = $('#carePaths').val();
                     var listCarePath = Enumerable.From(data);
 
-                    var selectedCarePathId = listCarePath
+                    selectedCarePathId = listCarePath
                                              .Where(function (x) { return x.text === selectedCarePath })
                                              .Select(function (x) { return x.value; })
                                              .FirstOrDefault();
@@ -125,7 +128,10 @@
                     //title: "Personalize View",
                     visible: false,
                     modal: true,
-                    content: "personalizepopup.html",
+                    content: {
+                        url: "personalizepopup.html",
+                        data: {Id : selectedCarePathId}
+                    },
                     actions: [
                         "Close"
                     ]
