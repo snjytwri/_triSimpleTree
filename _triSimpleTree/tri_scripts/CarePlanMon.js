@@ -38,6 +38,7 @@ function opendialog(page) {
 }
 
 function OpenPersonalizeWindow() {
+    debugger;
     var myWindow = $("#window");
     myWindow.data("kendoWindow").open();
 }

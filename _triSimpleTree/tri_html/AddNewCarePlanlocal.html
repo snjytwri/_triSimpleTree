@@ -9,23 +9,21 @@
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-    <script src="../tri_scripts/jquery_1_12_1min.js"></script>
-    <script src="../tri_scripts/CarePlanMon.js"></script>
+    <!--<script src="../tri_scripts/jquery_1_12_1min.js"></script>-->
     <script src="../tri_scripts/jquery_ui_192.custom.js"></script>
     <script src="../tri_scripts/kendo.js"></script>
     <script src="../tri_scripts/kendo.all.min.js"></script>
     <script type="text/javascript" src="../tri_scripts/SDK.REST.js"></script>
     <script src="../tri_scripts/json2.js" type="text/javascript"></script>
-    <!--<script src="../tri_scripts/PatientTreeScript.js"></script>-->
-    <script src="../ClientGlobalContext.js.aspx" type="text/javascript"></script>
-    <script src="../tri_scripts/xrmservicetoolkit.js" type="text/javascript"></script>
-
-    <!--<script src="../tri_scripts/DialogScript.js" type="text/javascript"></script>-->
-    <!----------------------------------------------------------------------------------------->
     <script src="../tri_scripts/linq.min.js"></script>
     <script src="../tri_scripts/linq.js"></script>
+    <!----------------------------------------------------------------------------------------->
+    <!--<script src="../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <script src="../tri_scripts/xrmservicetoolkit.js" type="text/javascript"></script>-->
     <script src="../tri_scripts/PatientMonitorMode.js"></script>
     <script src="../tri_scripts/AddNewCarePlan.js"></script>
+    <script src="../tri_scripts/CarePlanMon.js"></script>
+
     <script>
         $(document).ready(function () {
             if (1 == 1) {
@@ -128,10 +126,7 @@
                     //title: "Personalize View",
                     visible: false,
                     modal: true,
-                    content: {
-                        url: "personalizepopup.html",
-                        data: {Id : selectedCarePathId}
-                    },
+                    content: "personalizepopup.html?CarePathId=1",
                     actions: [
                         "Close"
                     ]
