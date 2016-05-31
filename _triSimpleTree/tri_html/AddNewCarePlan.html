@@ -45,7 +45,7 @@
 
                 // Get Distinct CarePlans
                 var distinctCarePlansTextArray = Enumerable.From(ddCarePlans)
-                                                  .Select(function (x) { return x.text;})
+                                                  .Select(function (x) { return x.text; })
                                                   .Distinct(function (y) { return y; })
                                                   .ToArray();
 
@@ -97,46 +97,49 @@
                             contactId, // Pass Contact ID
                             contact,
                             "Contact",
-                            updateSuccessCallback(selectedCarePath, selectedCarePathId, data, kendoAutoCompleteWC),
+                           // updateSuccessCallback(selectedCarePath, selectedCarePathId, data, kendoAutoCompleteWC),
+                            updateSuccessCallback,
                             errorHandler); //
+                    }
+
+                    // Function to execute after CarePlanToAdd is updated
+                    function updateSuccessCallback() {
+                        alert("The Patient record changes were saved");
+                        // get the newly added CarePlan Data
+                        // Recheck this logic
+                        debugger;
+                        var addedCarePlan =
+                            // Enumerable.From(GetCarePlanfromPatitentIdandCarePlanName(contactId, carePlan))
+                        Enumerable.From(GetCarePlanfromPatitentId(contactId))
+                            .Where(function (x) { return x.attributes.tri_planname.value === selectedCarePath })
+                            .Select(function (x) { return { 'text': x.attributes.tri_planname.value, 'value': x.attributes.tri_careplanid.id }; })
+                            .ToArray();
+
+                        if (addedCarePlan !== undefined && addedCarePlan !== null && addedCarePlan.length > 0) {
+                            // Get Distinct CarePlans
+                            var distinctAddedCarePlans = Enumerable.From(addedCarePlan)
+                                                         .Select(function (x) { return { 'text': x.text, 'value': x.value }; })
+                                                         .Distinct(function (y) { return y.text; })
+                                                         .ToArray();
+
+                            drawCarePlanRow(distinctAddedCarePlans[0].text, distinctAddedCarePlans[0].value, data, kendoAutoCompleteWC);
+
+                            data = Enumerable.From(data)
+                                            .Where(function (x) { return x.text !== selectedCarePath; })
+                                            .ToArray();
+                            // Bind new data to KendAutocomplete
+                            kendoAutoCompleteWC.setDataSource(data);
+                            $('#carePaths').val('');
+                        }
+                    }
+
+                    // function to display Error Message
+                    function errorHandler(error) {
+                        alert(error.message);
                     }
                 };
 
-                // Function to execute after CarePlanToAdd is updated
-                function updateSuccessCallback(carePlan, carePlanId, data, kendoAutoCompleteWC) {
-                     alert("The Patient record changes were saved");
-                    // get the newly added CarePlan Data
-                    // Recheck this logic
-                     debugger;
-                    var addedCarePlan =
-                        Enumerable.From(GetCarePlanfromPatitentIdandCarePlanName(contactId, carePlan))
-                        .Select(function (x) { return { 'text': x.attributes.tri_planname.value, 'value': x.attributes.tri_careplanid.id }; })
-                        .ToArray();
-
-                    if (addedCarePlan !== undefined && addedCarePlan !== null && addedCarePlan.length > 0) {
-                        // Get Distinct CarePlans
-                        var distinctAddedCarePlans = Enumerable.From(addedCarePlan)
-                                                     .Select(function (x) { return x.text; })
-                                                     .Distinct(function (y) { return y; })
-                                                     .ToArray();
-
-                        drawCarePlanRow(distinctAddedCarePlans.text, distinctAddedCarePlans.value, data, kendoAutoCompleteWC);
-
-                        data = Enumerable.From(data)
-                                        .Where(function (x) { return x.text !== carePlan; })
-                                        .ToArray();
-                        // Bind new data to KendAutocomplete
-                        kendoAutoCompleteWC.setDataSource(data);
-                        $('#carePaths').val('');
-                    }
-                }
-
-                // function to display Error Message
-                function errorHandler(error) {
-                    alert(error.message);
-                }
-
-                // Draw Care Plan Rows 
+                // Draw Care Plan Rows
                 function drawCarePlanRow(addedCarePlantext, addedCarePlanvalue) {
                     if (addedCarePlantext !== undefined && addedCarePlanvalue !== undefined) {
                         $('#carePlans').append('<div>' + '<span>' + addedCarePlantext + '</span>' +
@@ -166,20 +169,7 @@
             <input type="text" name="searchonAddCarePlan" placeholder="Search for entries" style="float: right; font-style: italic;" />
         </div>
         <div class="clear"></div>
-        <div id="updateCarePlan">
-
-        </div>
         <div class="carePlans" id="carePlans" style="margin-top:15px;z-index:-10">
-            <!--<script id="AddNewCarePlanTemplate" type="text/x-kendo-template">
-                # if(data != ""){  #
-                <div style="">
-                    <span>#= data.attributes.tri_name.value #</span>
-                    <a id="#= data.attributes.tri_cccarepathid.value #" href="\\#">+</a>
-                </div>
-                #
-                }
-                #
-            </script>-->
 
         </div>
     </div>
