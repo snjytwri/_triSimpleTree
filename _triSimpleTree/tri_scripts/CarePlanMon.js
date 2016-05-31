@@ -38,9 +38,9 @@ function opendialog(page) {
 }
 
 function OpenPersonalizeWindow() {
-    debugger;
-    var myWindow = $("#window");
-    myWindow.data("kendoWindow").open();
+    // debugger;
+    //var myWindow = $("#window");
+    //myWindow.data("kendoWindow").open();
 }
 
 function openTypeDetailsDescription(ele)

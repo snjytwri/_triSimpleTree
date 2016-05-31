@@ -72,7 +72,7 @@
     <Content Include="tri_css\bootstrap.css" />
     <Content Include="tri_css\kendo.common.min.css" />
     <Content Include="tri_css\kendo.default.min.css" />
-    <Content Include="tri_css\personalize-style.css" />
+    <Content Include="tri_css\personalize_style.css" />
     <Content Include="tri_html\AddNewCarePlan.html" />
     <Content Include="tri_html\AddNewCarePlanlocal.html" />
     <Content Include="tri_html\personalizepopup.html" />
@@ -80,7 +80,7 @@
     <Content Include="tri_scripts\AddNewCarePlan.js" />
     <Content Include="tri_scripts\bootstrap.js" />
     <Content Include="tri_scripts\CarePlanMonData.js" />
-    <Content Include="tri_scripts\jquery-1.11.3.min.js" />
+    <Content Include="tri_scripts\jquery_1.11.3.min.js" />
     <Content Include="tri_scripts\kendo.all.min.js" />
     <Content Include="tri_scripts\kendo.js" />
     <Content Include="tri_scripts\linq.js" />
