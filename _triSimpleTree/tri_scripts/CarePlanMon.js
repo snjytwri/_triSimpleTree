@@ -37,20 +37,42 @@ function opendialog(page) {
     $dialog.dialog('open');
 }
 
-function OpenPersonalizeWindow(carePlanId) {
-    // debugger;
-    var myWindow = $("#window");
-    myWindow.data("kendoWindow").open();
+function OpenPersonalizeWindow(CarePlanId) {
+    //  debugger;
+    var myWindow = $(".window-wrapper");
 
-    $.ajax({
-        type: "POST",
-        data: carePlanId,
-        //data: { ID: singleItem.ID }, //for passing single item parameter 
-        url: 'personalizepopup.html',
-        success: function (result) {
-            console.log(result);
+    //////////////////////////////////
+    var popupPlans = Enumerable.From(CarePlanData)
+                               .Where(function (x) { return x.attributes.tri_careplanid.id })
+    .ToArray();
+    // create a template using the above definition
+    var temp = $("#PersonalizeCarePlanTemplate").html();
+    var PersonalizeCarePlanTemplate = kendo.template(temp);
+    var dataSource = new kendo.data.DataSource({
+        data: popupPlans,
+        change: function () { // subscribe to the CHANGE event of the data source
+            $(".personalizeCarePlans").html(kendo.render(PersonalizeCarePlanTemplate, this.view()));
         }
     });
+    dataSource.read();
+
+    /// Drop down Selection
+    $(".dropdown-menu li a").click(function () {
+        $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+        $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+    });
+
+    myWindow.data("kendoWindow").center().open();
+
+    //$.ajax({
+    //    type: "POST",
+    //    data: carePlanId,
+    //    //data: { ID: singleItem.ID }, //for passing single item parameter 
+    //    url: 'personalizepopup.html',
+    //    success: function (result) {
+    //        console.log(result);
+    //    }
+    //});
 }
 
 function openTypeDetailsDescription(ele)
