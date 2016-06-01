@@ -216,7 +216,7 @@
         <!--<div id="window" style="display: none; padding:30px;margin-left:5%;">
         </div>-->
     </div>
-        <div class="window-wrapper" style="width:99%;">
+    <div class="window-wrapper" style="width:99%;">
             <!-- X-CLOSE -->
             <div style="width: 100%; margin-bottom: 20px;">
                 <div style="float:right;" class="x-close"><a style="text-decoration:none;" href=" stiersolution.html">X</a></div>
@@ -270,7 +270,10 @@
                                                         <td class="result-1 greytxt">
                                                             # } #
                                                             <!--<td class="result-1 greentxt">-->
-                                                            #= data.attributes.tri_measuredetails.value #
+                                                            # if(data.attributes.tri_measuredetails)
+                                                            {
+                                                            data.attributes.tri_measuredetails.value;
+                                                            } #
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -278,16 +281,28 @@
                                                 <table class="maintable" align="center">
                                                     <tr>
                                                         <td class="label-name">Result Source:</td>
+                                                        # if(data.attributes.tri_LastTargetValue !== undefined) { #
                                                         <td class="result-1">#= data.attributes.tri_LastTargetValue.value #</td>
+                                                        # } else { #
+                                                        <td class="result-1"></td>
+                                                        # } #
                                                     </tr>
                                                 </table>
                                                 <!-- DATES -->
                                                 <table class="maintable" align="center">
                                                     <tr>
                                                         <td class="label-name"> Last Result Date:</td>
-                                                        <td class="result-1"> #= data.attributes.tri_lastgoaldate.value #</td>
+                                                        # if(data.attributes.tri_lastgoaldate !== undefined) { #
+                                                        <td class="result-1">#= data.attributes.tri_lastgoaldate.value #</td>
+                                                        # } else { #
+                                                        <td class="result-1"></td>
+                                                        # } #
                                                         <td class="label-name"> Next Due Date:</td>
-                                                        <td class="result-1"> #= data.attributes.tri_NextDueDate.value #<br></td>
+                                                        # if(data.attributes.tri_NextDueDate !== undefined) { #
+                                                        <td class="result-1">#= data.attributes.tri_NextDueDate.value #</td>
+                                                        # } else { #
+                                                        <td class="result-1"></td>
+                                                        # } #
                                                     </tr>
                                                 </table>
                                                 <br><br>
@@ -329,12 +344,12 @@
                                                                                 &lt; &nbsp; &nbsp;<span class="caret">
                                                                                     #
                                                                                     if(data.attributes.tri_targetmetricoperator !== undefined)
-                                                                                    { 
-                                                                                        data.attributes.tri_targetmetricoperator.formattedValue; 
+                                                                                    {
+                                                                                    data.attributes.tri_targetmetricoperator.formattedValue;
                                                                                     }
                                                                                     else if(data.attributes.tri_metricoperatortwo !== undefined)
                                                                                     {
-                                                                                       data.attributes.tri_metricoperatortwo.formattedValue; 
+                                                                                    data.attributes.tri_metricoperatortwo.formattedValue;
                                                                                     }
                                                                                     #
                                                                                 </span>
@@ -423,7 +438,8 @@
                                                             <!-- ASSIGNMENT ROLE DROP-DOWN -->
                                                             <div class="dropdown" style="width: 120px;" id="#= data.id#_ddAssignmentRole">
                                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    #= data.attributes.tri_activityassignmentrole.formattedValue # <span class="caret"></span>
+                                                                    #= data.attributes.tri_activityassignmentrole.formattedValue #
+                                                                    <span class="caret"></span>
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a href="\\#" data-value="-1"></a></li>
