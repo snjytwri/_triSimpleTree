@@ -37,10 +37,16 @@
                 var islocal = true;
                 var newPaths = CarePathData;
                 var newPlans = CarePlanData;
-                //if (parent.Xrm !== undefined) {
-                //    var newPaths = GetAllCarePath();
-                //    var contactId = parent.Xrm.Page.data.entity.getId();
-                //    var newPlans = GetCarePlanfromPatitentId(contactId);
+            //if (parent.Xrm !== undefined) {
+
+            //    var contactId = parent.Xrm.Page.data.entity.getId();
+            //    //Adhoc
+
+            //    var sbc = GetCarePlanfromCarePlanId('cef34939-a624-e611-80d1-005056810c7c');
+            //    $('#updateCarePlan').append(JSON.stringify(sbc));
+            //    debugger;
+            //        var newPaths = GetAllCarePath();
+            //        var newPlans = GetCarePlanfromPatitentId(contactId);
 
                 var selectedCarePath;
                 var selectedCarePathId;
@@ -264,7 +270,7 @@
                                                         <td class="result-1 greytxt">
                                                             # } #
                                                             <!--<td class="result-1 greentxt">-->
-                                                            #= data.attributes.tri_goalname.value #
+                                                            #= data.attributes.tri_measuredetails.value #
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -272,16 +278,16 @@
                                                 <table class="maintable" align="center">
                                                     <tr>
                                                         <td class="label-name">Result Source:</td>
-                                                        <td class="result-1">#= data.attributes.tri_goalname.value #</td>
+                                                        <td class="result-1">#= data.attributes.tri_LastTargetValue.value #</td>
                                                     </tr>
                                                 </table>
                                                 <!-- DATES -->
                                                 <table class="maintable" align="center">
                                                     <tr>
                                                         <td class="label-name"> Last Result Date:</td>
-                                                        <td class="result-1"> #= data.attributes.tri_goalname.value #</td>
+                                                        <td class="result-1"> #= data.attributes.tri_lastgoaldate.value #</td>
                                                         <td class="label-name"> Next Due Date:</td>
-                                                        <td class="result-1"> #= data.attributes.tri_goalname.value #<br></td>
+                                                        <td class="result-1"> #= data.attributes.tri_NextDueDate.value #<br></td>
                                                     </tr>
                                                 </table>
                                                 <br><br>
@@ -323,9 +329,13 @@
                                                                                 &lt; &nbsp; &nbsp;<span class="caret">
                                                                                     #
                                                                                     if(data.attributes.tri_targetmetricoperator !== undefined)
-                                                                                    { data.attributes.tri_targetmetricoperator.formattedValue; }
-                                                                                    //  { htmlDecode(data.attributes.tri_targetmetricoperator.formattedValue); }
-
+                                                                                    { 
+                                                                                        data.attributes.tri_targetmetricoperator.formattedValue; 
+                                                                                    }
+                                                                                    else if(data.attributes.tri_metricoperatortwo !== undefined)
+                                                                                    {
+                                                                                       data.attributes.tri_metricoperatortwo.formattedValue; 
+                                                                                    }
                                                                                     #
                                                                                 </span>
                                                                             </button>
@@ -333,14 +343,16 @@
                                                                                 <li><a href="\\#" data-value="167410000">></a></li>
                                                                                 <li><a href="\\#" data-value="167410002">=</a></li>
                                                                                 <li><a href="\\#" data-value="167410001"><</a></li>
-                                                                                <li><a href="\\#" data-value="167410003">% Decrease</a></li>
-                                                                                <li><a href="\\#" data-value="167410004">% Increase</a></li>
+                                                                                <li><a href="\\#" data-value="167410004">% Decrease</a></li>
+                                                                                <li><a href="\\#" data-value="167410003">% Increase</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         # if(data.attributes.tri_metric !== undefined){#
                                                                         <input type="text" class="txtfield" value="#= data.attributes.tri_metric.formattedValue #">
+                                                                        #} else if(data.attributes.tri_targetvaluetwo !== undefined){#
+                                                                        <input type="text" class="txtfield" value="#= data.attributes.tri_targetvaluetwo.formattedValue #">
                                                                         #} else {#
                                                                         <input type="text" class="txtfield" value="">
                                                                         #}#
@@ -401,8 +413,8 @@
                                                 <table class="factors" align="center">
                                                     <tr>
                                                         <td style="width:450px; padding-left:10px; padding-right: 0px;">
-                                                            # if(data.attributes.tri_measuredetails !== undefined) { #
-                                                            <input type="text" class="txtfield" value="#= data.attributes.tri_measuredetails.value #" style="width:450px;text-align: left; padding-left: 10px;">
+                                                            # if(data.attributes.tri_activitydescription !== undefined) { #
+                                                            <input type="text" class="txtfield" value="#= data.attributes.tri_activitydescription.value #" style="width:450px;text-align: left; padding-left: 10px;">
                                                             #} else { #
                                                             <input type="text" class="txtfield" value="" style="width:450px;text-align: left; padding-left: 10px;">
                                                             # } #

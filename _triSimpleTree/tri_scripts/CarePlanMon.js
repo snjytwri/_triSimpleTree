@@ -42,14 +42,18 @@ function OpenPersonalizeWindow(CarePlanId) {
     var myWindow = $(".window-wrapper");
 
     //////////////////////////////////
-    var popupPlans = Enumerable.From(CarePlanData)
+    // var popupPlans = GetCarePlanfromCarePlanId(CarePlanId);
+    var popupPlans = CarePlanDataPersonalize;
+
+    var CarPlans = Enumerable.From(popupPlans)
                                .Where(function (x) { return x.attributes.tri_careplanid.id })
-    .ToArray();
+                               .ToArray();
+
     // create a template using the above definition
     var temp = $("#PersonalizeCarePlanTemplate").html();
     var PersonalizeCarePlanTemplate = kendo.template(temp);
     var dataSource = new kendo.data.DataSource({
-        data: popupPlans,
+        data: CarPlans,
         change: function () { // subscribe to the CHANGE event of the data source
             $(".personalizeCarePlans").html(kendo.render(PersonalizeCarePlanTemplate, this.view()));
         }

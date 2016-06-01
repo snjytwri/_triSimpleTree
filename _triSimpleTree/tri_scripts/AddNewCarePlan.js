@@ -1,5 +1,1109 @@
 ﻿"use Strict";
 
+var CarePlanDataPersonalize = [
+{
+    "id": "faf34939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "DBP - All Diastolic"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "faf34939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000004,
+            "formattedValue": "All",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 90,
+            "formattedValue": "90.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000007,
+            "formattedValue": "Home Vitals",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "Validated home cuff is acceptable"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Blood Pressure - Diastolic"
+        }
+    }
+},
+{
+    "id": "fcf34939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "SBP - Comorbid"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "fcf34939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000002,
+            "formattedValue": "Comorbid",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 150,
+            "formattedValue": "150.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000007,
+            "formattedValue": "Home Vitals",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "Validated home cuff is acceptable"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Blood Pressure - Systolic"
+        }
+    }
+},
+{
+    "id": "fef34939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "SBP - Elderly/Frail"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "fef34939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000001,
+            "formattedValue": "Elderly / Frail",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 150,
+            "formattedValue": "150.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000007,
+            "formattedValue": "Home Vitals",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "Validated home cuff is acceptable"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Blood Pressure - Systolic"
+        }
+    }
+},
+{
+    "id": "00f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "SBP - Most Patients"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "00f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000000,
+            "formattedValue": "Most patients",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 140,
+            "formattedValue": "140.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000007,
+            "formattedValue": "Home Vitals",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "Validated home cuff is acceptable"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Blood Pressure - Systolic"
+        }
+    }
+},
+{
+    "id": "14f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "DB - Most Patients - Systolic"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "14f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000000,
+            "formattedValue": "Most patients",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 140,
+            "formattedValue": "140.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": -1,
+            "formattedValue": "",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000007,
+            "formattedValue": "Home Vitals",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Blood Pressure - Systolic"
+        }
+    }
+},
+{
+    "id": "0af44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "Statin - Most Patients"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "0af44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_patientfactor": {
+            "value": 100000000,
+            "formattedValue": "Most patients",
+            "type": "OptionSetValue"
+        },
+        "tri_activitydescription": {
+            "type": "string",
+            "value": "Medication Review for Adherence"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000002,
+            "formattedValue": "Medications",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "10 year risk greater than or equal to 10% and age 21-75"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Statin"
+        }
+    }
+},
+{
+    "id": "0cf44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "Statin - Elderly/Frail"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "0cf44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_patientfactor": {
+            "value": 100000001,
+            "formattedValue": "Elderly / Frail",
+            "type": "OptionSetValue"
+        },
+        "tri_activitydescription": {
+            "type": "string",
+            "value": "Medication Review for Adherence"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000002,
+            "formattedValue": "Medications",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "10 year risk < 10% and/or age > 75"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Statin"
+        }
+    }
+},
+{
+    "id": "12f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "Medication Adherence - All"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000002,
+            "formattedValue": "Medications",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "12f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Medication Adherence"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_patientfactor": {
+            "value": 100000004,
+            "formattedValue": "All",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        }
+    }
+},
+{
+    "id": "f4f34939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "A1C - Comorbid"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "f4f34939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000002,
+            "formattedValue": "Comorbid",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 8,
+            "formattedValue": "8.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "A1C"
+        }
+    }
+},
+{
+    "id": "f6f34939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "A1C - Elderly/Frail"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "f6f34939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000001,
+            "formattedValue": "Elderly / Frail",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 8,
+            "formattedValue": "8.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "A1C"
+        }
+    }
+},
+{
+    "id": "f8f34939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "A1C - Most Patients"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "f8f34939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000000,
+            "formattedValue": "Most patients",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 7,
+            "formattedValue": "7.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "A1C"
+        }
+    }
+},
+{
+    "id": "02f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "Dilated Eye Exam - All"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "02f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Dilated Eye Exam"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_patientfactor": {
+            "value": 100000004,
+            "formattedValue": "All",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        }
+    }
+},
+{
+    "id": "04f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "Foot Exam - All"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "04f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Foot Exam"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_patientfactor": {
+            "value": 100000004,
+            "formattedValue": "All",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        }
+    }
+},
+{
+    "id": "06f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "eGFR - All"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "06f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410000,
+            "formattedValue": ">",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000004,
+            "formattedValue": "All",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 60,
+            "formattedValue": "60.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "eGFR"
+        }
+    }
+},
+{
+    "id": "08f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "ACR - All"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "08f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_targetmetricoperator": {
+            "value": 167410001,
+            "formattedValue": "<",
+            "type": "OptionSetValue"
+        },
+        "tri_patientfactor": {
+            "value": 100000004,
+            "formattedValue": "All",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_metric": {
+            "type": "decimal",
+            "value": 30,
+            "formattedValue": "30.00"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "ACR"
+        }
+    }
+},
+{
+    "id": "0ef44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "Vaccines"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "0ef44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_patientfactor": {
+            "value": 100000004,
+            "formattedValue": "All",
+            "type": "OptionSetValue"
+        },
+        "tri_activitydescription": {
+            "type": "string",
+            "value": "Annual review for UTD"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "Pneumovx x1 pre age 65, x2 after the age of 65; Flu shot annual; Hep B series once in life"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Vaccines"
+        }
+    }
+},
+{
+    "id": "10f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "ASCVD - Most Patients"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "10f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_patientfactor": {
+            "value": 100000000,
+            "formattedValue": "Most patients",
+            "type": "OptionSetValue"
+        },
+        "tri_activitydescription": {
+            "type": "string",
+            "value": "Every 3 years"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        },
+        "tri_activityassignmentrole": {
+            "value": 167410003,
+            "formattedValue": "Care Navigator",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_measuredetails": {
+            "type": "string",
+            "value": "40-75 years old if not already on max statin and ASA"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "ASCVD"
+        }
+    }
+},
+{
+    "id": "16f44939-a624-e611-80d1-005056810c7c",
+    "logicalName": "tri_careplanjoin",
+    "attributes": {
+        "tri_goalname": {
+            "type": "string",
+            "value": "Breathing Symptoms - Short Of Breath"
+        },
+        "tri_schedulecategory": {
+            "value": 100000000,
+            "formattedValue": "Care Management Schedule",
+            "type": "OptionSetValue"
+        },
+        "tri_goalsection": {
+            "value": 100000001,
+            "formattedValue": "Tests/Care",
+            "type": "OptionSetValue"
+        },
+        "tri_careplanjoinid": {
+            "type": "guid",
+            "value": "16f44939-a624-e611-80d1-005056810c7c"
+        },
+        "tri_vitalvaluetypename": {
+            "type": "string",
+            "value": "Breathing Symptoms"
+        },
+        "tri_careplanid": {
+            "id": "cef34939-a624-e611-80d1-005056810c7c",
+            "logicalName": "",
+            "name": "tri_cccareplan",
+            "type": "EntityReference"
+        },
+        "tri_patientfactor": {
+            "value": 100000000,
+            "formattedValue": "Most patients",
+            "type": "OptionSetValue"
+        },
+        "new_goalstate": {
+            "value": 167410000,
+            "formattedValue": "Open",
+            "type": "OptionSetValue"
+        },
+        "tri_activityassignmentrole": {
+            "value": -1,
+            "formattedValue": "",
+            "type": "OptionSetValue"
+        },
+        "tri_planname": {
+            "type": "string",
+            "value": "KM DM"
+        }
+    }
+}
+];
 var CarePlanData = [
 {
     "id": "faf34939-a624-e611-80d1-005056810c7c",    // id "fcf34939-a624-e611-80d1-005056810c7c"
