@@ -19,11 +19,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>-->
     <!--<script src="../tri_scripts/jquery_1_12_1min.js"></script>-->
     <!-- remove this and popup works but no data displayed-->
-    <script src="../tri_script/jquery_1.11.3.min.js"></script>
+    <!--<script src="../tri_script/jquery_1.11.3.min.js"></script>-->
     <script src="../tri_scripts/jquery_ui_192.custom.js"></script>
     <script src="../tri_script/bootstrap.js"></script>
     <script src="../tri_scripts/kendo.js"></script>
@@ -262,7 +262,6 @@
                 <div class="bluebtn">SAVE CHANGES</div>
             </div>
         </div>
-       
     </div>
 </body>
 </html>
@@ -284,18 +283,18 @@
         //debugger;
         params = getParams();
         var CarePlanId = unescape(params["CarePlanId"]);
-       // alert(CarePathId);
+        alert(CarePathId);
 
         // local changes
-        //if (1 === 1 && CarePathId !== undefined) {
-        //    debugger;
-        //    var islocal = true;
-        //    var newPlans = CarePlanData;
-
-        if (parent.Xrm !== undefined) {
+        if (1 === 1 && CarePathId !== undefined) {
             debugger;
-                var contactId = parent.Xrm.Page.data.entity.getId();
-                var newPlans = GetCarePlanfromCarePlanId(CarePlanId);
+            var islocal = true;
+            var newPlans = CarePlanData;
+
+        //if (parent.Xrm !== undefined) {
+        //    debugger;
+        //        var contactId = parent.Xrm.Page.data.entity.getId();
+        //        var newPlans = GetCarePlanfromCarePlanId(CarePlanId);
 
             //var PersonalizeCarePlanTemplateData = Enumerable.From(JSON.stringify(newPlans))
             //                                            .ToArray();

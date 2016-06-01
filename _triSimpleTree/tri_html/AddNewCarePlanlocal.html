@@ -133,17 +133,17 @@
                     }
                 };
 
-                //$("#window").kendoWindow({
-                //    width: "70%",
-                //    height: "50%",
-                //    //title: "Personalize View",
-                //    visible: false,
-                //    modal: true,
-                //    content: "www.telerik.com",//"personalizepopup.html?CarePathId=1",
-                //    actions: [
-                //        "Close"
-                //    ]
-                //}).data("kendoWindow").center().open();
+                $("#window").kendoWindow({
+                    width: "70%",
+                    height: "50%",
+                    //title: "Personalize View",
+                    visible: false,
+                    modal: true,
+                    content: "personalizepopup.html",
+                    actions: [
+                        "Close"
+                    ]
+                }).data("kendoWindow").center().open();
 
                 // function to display Error Message
                 function errorHandler(error) {
@@ -153,8 +153,8 @@
                 function updateSuccessCallback(carePlan, carePlanId, data, kendoAutoCompleteWC) {
                     $('#carePlans').append('<div>' +
                                         '<span>' + carePlan + '</span>' +
-                                        //'<a onclick="javascript: OpenPersonalizeWindow(); return false;" id="' + carePathId + '" href="">+</a>' +
-                                        '<a href="personalizepopup.html?CarePathId=' + carePlanId + '" id="' + carePlanId + '_rowCarePlan">+</a>' +
+                                        '<a onclick="javascript: OpenPersonalizeWindow("'+carePlanId+'"); return false;" id="' + carePlanId + '" href="">+</a>' +
+                                        //'<a href="#" id="' + carePlanId + '_rowCarePlan">+</a>' +
                                         '</div>');
 
                     data = Enumerable.From(data)
@@ -199,8 +199,8 @@
                 #
             </script>-->
         </div>
-        <!--<div id="window" style="display: none; padding:30px;margin-left:5%;">
-        </div>-->
+        <div id="window" style="display: none; padding:30px;margin-left:5%;">
+        </div>
     </div>
 </body>
 </html>

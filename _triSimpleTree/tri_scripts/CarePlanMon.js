@@ -37,10 +37,20 @@ function opendialog(page) {
     $dialog.dialog('open');
 }
 
-function OpenPersonalizeWindow() {
+function OpenPersonalizeWindow(carePlanId) {
     // debugger;
-    //var myWindow = $("#window");
-    //myWindow.data("kendoWindow").open();
+    var myWindow = $("#window");
+    myWindow.data("kendoWindow").open();
+
+    $.ajax({
+        type: "POST",
+        data: carePlanId,
+        //data: { ID: singleItem.ID }, //for passing single item parameter 
+        url: 'personalizepopup.html',
+        success: function (result) {
+            console.log(result);
+        }
+    });
 }
 
 function openTypeDetailsDescription(ele)
