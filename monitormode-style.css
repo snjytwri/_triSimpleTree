@@ -17,6 +17,18 @@ height:30px;
 text-align:left;
 }
 
+.button {
+    /*background-color: #f0f5f5; */
+    background-color:white;
+    float:right;
+    border:medium;
+    color: navy;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    font-size: 13px;
+}
 
 
 .indicator-box-big_symptoms_all, .indicator-box-big_testcare_all, .indicator-box-big_vitals_all,.indicator-box-big_medications_all,.indicator-box-big_activity_all,.indicator-box-big_nutrition_all,.indicator-box-big_psychosocial_all,.indicator-box-big_wrapup_all
@@ -49,10 +61,20 @@ margin-left: 10px;
 margin-top: 0px;
 }
 
-
-.indicator-box-big:hover {
-  cursor: pointer;
+.indicator-box-small:hover, .indicator-box-small_symptoms_red:hover, .indicator-box-small_symptoms_orange:hover, .indicator-box-small_symptoms_green:hover,
+.indicator-box-small_testcare_red:hover, .indicator-box-small_testcare_orange:hover, .indicator-box-small_testcare_green:hover,
+.indicator-box-small_vitals_red:hover, .indicator-box-small_vitals_orange:hover, .indicator-box-small_vitals_green:hover,
+.indicator-box-small_medications_red:hover, .indicator-box-small_medications_orange:hover, .indicator-box-small_medications_green:hover,
+.indicator-box-small_activity_red:hover, .indicator-box-small_activity_orange:hover, .indicator-box-small_activity_green:hover,
+.indicator-box-small_nutrition_red:hover, .indicator-box-small_nutrition_orange:hover, .indicator-box-small_nutrition_green:hover,
+.indicator-box-small_psychosocial_red:hover, .indicator-box-small_psychosocial_orange:hover, .indicator-box-small_psychosocial_green:hover,
+.indicator-box-small_wrapup_red:hover, .indicator-box-small_wrapup_orange:hover, .indicator-box-small_wrapup_green:hover {
+    cursor: pointer;
 }
+
+/*.indicator-box-big:hover {
+  cursor: pointer;
+}*/
 
 .indicator-box-small,.indicator-box-small_symptoms_red,.indicator-box-small_symptoms_orange,.indicator-box-small_symptoms_green,
 .indicator-box-small_testcare_red,.indicator-box-small_testcare_orange,.indicator-box-small_testcare_green,
@@ -94,7 +116,15 @@ margin-right: 2px;
 margin-top: 5px;
 }
 
-.indicator-box-small:hover {
+.indicator-box-small:hover, .indicator-box-small_symptoms_red:hover, .indicator-box-small_symptoms_orange:hover, .indicator-box-small_symptoms_green:hover,
+.indicator-box-small_testcare_red:hover, .indicator-box-small_testcare_orange:hover, .indicator-box-small_testcare_green:hover,
+.indicator-box-small_vitals_red:hover, .indicator-box-small_vitals_orange:hover, .indicator-box-small_vitals_green:hover,
+.indicator-box-small_medications_red:hover, .indicator-box-small_medications_orange:hover, .indicator-box-small_medications_green:hover,
+.indicator-box-small_activity_red:hover, .indicator-box-small_activity_orange:hover, .indicator-box-small_activity_green:hover,
+.indicator-box-small_nutrition_red:hover, .indicator-box-small_nutrition_orange:hover, .indicator-box-small_nutrition_green:hover,
+.indicator-box-small_psychosocial_red:hover, .indicator-box-small_psychosocial_orange:hover, .indicator-box-small_psychosocial_green:hover,
+.indicator-box-small_wrapup_red:hover, .indicator-box-small_wrapup_orange:hover, .indicator-box-small_wrapup_green:hover 
+ {
 width: 50px;
 height:30px;
 line-height: 34px;
@@ -109,24 +139,11 @@ cursor: pointer;
 margin-top: 0px;
 }
 
-.indicator-box-small:hover {
-width: 50px;
-height:30px;
-line-height: 34px;
-text-align:center;
-color: #ffffff;
-font-size:24px;
-font-family: Segoe UI, Helvetica, Arial;
-font-weight: bolder;
-float:left;
-margin-right: 3px;
-cursor: pointer;
-margin-top: 0px;
-}
 
-
-
-.indicator-box-small-grey:hover {
+.indicator-box-small-grey:hover,.indicator-box-small_symptoms_grey:hover,.indicator-box-small_testcare_grey:hover,.indicator-box-small_vitals_grey:hover,.indicator-box-small_psychosocial_grey:hover,.indicator-box-small_wrapup_grey:hover,
+.indicator-box-small_medications_grey:hover,
+.indicator-box-small_activity_grey:hover,
+.indicator-box-small_nutrition_grey:hover {
 width: 50px;
 height:30px;
 line-height: 1-px;
@@ -258,7 +275,7 @@ font-weight: bold;
    border-color: #beb7bb
 }
 
-.maintable, .maintable_symptoms_all,.maintable_symptoms_red,.maintable_symptoms_orange,.maintable_symptoms_green,.maintable_symptoms_grey,
+.maintable,maintable_hdr, .maintable_symptoms_all,.maintable_symptoms_red,.maintable_symptoms_orange,.maintable_symptoms_green,.maintable_symptoms_grey,
 .maintable_testcare_all,.maintable_testcare_red,.maintable_testcare_orange,.maintable_testcare_green,.maintable_testcare_grey,
 .maintable_vitals_all,.maintable_vitals_red,.maintable_vitals_orange,.maintable_vitals_green,.maintable_vitals_grey,
 .maintable_medications_all,.maintable_medications_red,.maintable_medications_orange,.maintable_medications_green,.maintable_medications_grey,

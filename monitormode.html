@@ -13,6 +13,18 @@
 <script src="../ClientGlobalContext.js.aspx" type="text/javascript"></script>
 <link href="../tri_css/KMpersonalize_style.css" rel="stylesheet" type="text/css">
 <link href="../tri_css/KMbootstrap.css" rel="stylesheet" type="text/css">
+<!-- styling just for the table header-->
+ <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;width: 100%}
+/*.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}*/
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:8px 2px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#f0f5f5;}
+.tg .tg-typedetail{text-align:left;vertical-align:top; width: 30%;    min-width: 160px}
+.tg .tg-target{vertical-align:top;width: 22%;   min-width: 110px;    text-align:center }
+.tg .tg-LastResult{vertical-align:top;width: 22%;   min-width: 110px;    text-align:center }
+.tg .tg-lastresultdate{vertical-align:top;width: 10%;   min-width: 40px;    text-align:center }
+.tg .tg-duedate{vertical-align:top;width: 10%;   min-width: 40px;    text-align:center }
+.tg .tg-more{vertical-align:top;width: 4%;   min-width: 20px;    text-align:center }
+</style>
 
 </head>
 
@@ -21,6 +33,19 @@
 <div class="main-wrapper"  >
 <div class="monitor-wrapper">
 
+<div><button class="button" type="button" onclick="return gotoAddCarePlan();"><img src="../tri_imgs/KM.addcareplan.png"> Add Plan</button></div>
+
+<table class="tg">
+  <tr>
+    <th class="tg-typedetail" >Type & Detail</th>
+    <th class="tg-target">Target</th>
+    <th class="tg-LastResult">Last Result</th>
+    <th class="tg-lastresultdate">Last Result Date</th>
+    <th class="tg-duedate">Next Due Date</th>
+    <th class="tg-more">More</th>
+  </tr>
+</table>
+    <br />
 <!-- START ITEM 1 (Symptoms) -->    
 <!-- Indicators + Section Title -->    
 
@@ -108,7 +133,7 @@
     <!-- START ITEM 3 (Vitals) -->
     <!-- Indicators + Section Title -->
 
- <div class="indicator-wrapper_vitals">
+<div class="indicator-wrapper_vitals">
   
     	<div class="indicator-box-big_vitals_all blue allactive"></div>
         <div class="indicator-box-small_vitals_red red"></div>

@@ -504,6 +504,7 @@ function getCPGoalSymptomsAll(PatientId) {
     "&$filter=tri_GoalSection/Value eq 100000000 and tri_PatientID/Id eq (guid'" + PatientId + "')",
     function (results) {
         intTotalSymptoms = "ALL (" + results.length+")";
+
         $('.indicator-box-big_symptoms_all').text(intTotalSymptoms);
         for (var i = 0; i < results.length; i++) {
           
@@ -978,6 +979,7 @@ function getCPGoaltestcareNotMet(PatientId) {
                                               '<td colspan="6" style=" font-size:1px;"><hr class="grey"></td>' +
                                               '</tr>'
 
+
         }
         $('.maintable_testcare_red').append(tagtestcareRed);
     },
@@ -1042,6 +1044,7 @@ function getCPGoaltestcareOpen(PatientId) {
                                                '<td colspan="6" style=" font-size:1px;"><hr class="grey"></td>' +
                                                '</tr>'
 
+
          }
          $('.maintable_testcare_orange').append(tagtestcareOrange);
      },
@@ -1104,6 +1107,7 @@ function getCPGoaltestcareMet(PatientId) {
                                                 '<tr>' +
                                                 '<td colspan="6" style=" font-size:1px;"><hr class="grey"></td>' +
                                                 '</tr>'
+
 
           }
           $('.maintable_testcare_green').append(tagtestcareGreen);
@@ -1176,6 +1180,7 @@ function getCPGoaltestcareOverDue(PatientId) {
                                               '<tr>' +
                                               '<td colspan="6" style=" font-size:1px;"><hr class="grey"></td>' +
                                               '</tr>'
+
 
         }
         $('.maintable_testcare_grey').append(tagtestcareGrey);
@@ -1502,6 +1507,7 @@ function getCPGoalvitalsOverDue(PatientId) {
                                               '<tr>' +
                                               '<td colspan="6" style=" font-size:1px;"><hr class="grey"></td>' +
                                               '</tr>'
+
 
         }
         $('.maintable_vitals_grey').append(tagvitalsGrey);
@@ -3143,4 +3149,8 @@ function getCPGoalwrapupOverDue(PatientId) {
         //On Complete - Do Something
     }
 );
+}
+function gotoAddCarePlan() {
+    //alert("hello");
+    $('.monitor-wrapper').hide('slow');
 }
